@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         viewpager_main.setSwipeLocked(true)
 
         tabs_main.setupWithViewPager(viewpager_main)
+        //TODO: Implement click event on navigation drawer items
     }
 
 }
