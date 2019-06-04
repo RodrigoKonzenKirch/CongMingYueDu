@@ -7,8 +7,11 @@
         tools:context=".view.TextFragment">
 
     <TextView
+            android:id="@+id/textViewTextFragment"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:text="你好世界。"
             tools:text="Chinese text will be shown here!"/>
 
 </FrameLayout>

@@ -9,6 +9,10 @@ import android.view.ViewGroup
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.GlossaryViewModel
+import android.widget.TextView
+import androidx.navigation.findNavController
+import kotlinx.android.synthetic.main.glossary_fragment.*
+import kotlinx.android.synthetic.main.text_fragment.*
 
 class GlossaryFragment : Fragment() {
 
@@ -17,6 +21,7 @@ class GlossaryFragment : Fragment() {
     }
 
     private lateinit var viewModel: GlossaryViewModel
+    private lateinit var textView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +33,11 @@ class GlossaryFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(GlossaryViewModel::class.java)
+
+        textView = textViewGlossaryFragment
+        textView.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.textFragment)}
+
         // TODO: Use the ViewModel
     }
 

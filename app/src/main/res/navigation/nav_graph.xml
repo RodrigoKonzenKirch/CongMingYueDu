@@ -5,9 +5,13 @@
             app:startDestination="@id/textFragment">
 
     <fragment android:id="@+id/glossaryFragment" android:name="android.practice.com.congmingyuedu.view.GlossaryFragment"
-              android:label="glossary_fragment" tools:layout="@layout/glossary_fragment"/>
+              android:label="glossary_fragment" tools:layout="@layout/glossary_fragment">
+        <action android:id="@+id/action_glossaryFragment_to_textFragment" app:destination="@id/textFragment"/>
+    </fragment>
     <fragment android:id="@+id/textFragment" android:name="android.practice.com.congmingyuedu.view.TextFragment"
               android:label="text_fragment" tools:layout="@layout/text_fragment">
-        <action android:id="@+id/action_textFragment_to_glossaryFragment" app:destination="@id/glossaryFragment"/>
+        <action android:id="@+id/action_textFragment_to_glossaryFragment" app:destination="@id/glossaryFragment"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 </navigation>
