@@ -8,7 +8,8 @@ import android.arch.persistence.room.PrimaryKey
 data class Text(
     @ColumnInfo(name="id") @PrimaryKey(autoGenerate = true) var id: Long?,
     @ColumnInfo(name="text_title") var textTitle: String,
-    @ColumnInfo(name = "text_content") var textContent: String
+    @ColumnInfo(name = "text_content") var textContent: String,
+    @ColumnInfo(name = "page") var page: Int
 ) {
-    constructor() : this(null, "", "")
+    constructor() : this(null, "", "", 0)
 }
