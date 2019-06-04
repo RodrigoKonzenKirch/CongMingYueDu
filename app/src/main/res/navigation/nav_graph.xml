@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/textFragment">
+
+    <fragment android:id="@+id/glossaryFragment" android:name="android.practice.com.congmingyuedu.view.GlossaryFragment"
+              android:label="glossary_fragment" tools:layout="@layout/glossary_fragment"/>
+    <fragment android:id="@+id/textFragment" android:name="android.practice.com.congmingyuedu.view.TextFragment"
+              android:label="text_fragment" tools:layout="@layout/text_fragment">
+        <action android:id="@+id/action_textFragment_to_glossaryFragment" app:destination="@id/glossaryFragment"/>
+    </fragment>
+</navigation>

@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.MainTextViewModel
 
-class MainTextFragment : Fragment() {
+class TextFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainTextFragment()
+        fun newInstance() = TextFragment()
     }
 
     private lateinit var viewModel: MainTextViewModel
@@ -21,7 +21,7 @@ class MainTextFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.main_text_fragment, container, false)
+        return inflater.inflate(R.layout.text_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
