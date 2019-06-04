@@ -5,10 +5,10 @@ import android.practice.com.congmingyuedu.R
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(navController.graph, main_drawer_layout)
         findViewById<Toolbar>(R.id.toolbar)
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
             //TODO: Implement click event on navigation drawer items
             when(menuItem.itemId){
-                R.id.nav_read_text -> Toast.makeText(this, "read not implemented yet", Toast.LENGTH_LONG).show()
+                R.id.nav_read_text -> nav_host_fragment.findNavController().navigate(R.id.textFragment)
                 R.id.nav_open_text -> Toast.makeText(this, "open not implemented yet", Toast.LENGTH_LONG).show()
                 R.id.nav_import_text -> Toast.makeText(this, "import not implemented yet", Toast.LENGTH_LONG).show()
                 R.id.nav_delete_text -> Toast.makeText(this, "delete not implemented yet", Toast.LENGTH_LONG).show()
@@ -48,7 +47,5 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
     }
-
 }
