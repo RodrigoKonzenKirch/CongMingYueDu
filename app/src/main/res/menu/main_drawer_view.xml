@@ -10,12 +10,17 @@
         android:checked="true"/>
 
     <item
-        android:id="@+id/nav_add_text"
+        android:id="@+id/nav_open_text"
+        android:icon="@drawable/under_construction"
+        android:title="Open" />
+
+    <item
+        android:id="@+id/nav_import_text"
         android:icon="@drawable/under_construction"
         android:title="Import" />
 
     <item
-        android:id="@+id/nav_del_text"
+        android:id="@+id/nav_delete_text"
         android:icon="@drawable/under_construction"
         android:title="Delete" />
 

@@ -32,34 +32,3 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 }
-
-
-//@Database(entities = [(Contact::class)], version = 1)
-//abstract class AppDatabase : RoomDatabase() {
-//
-//    abstract fun contactDao(): ContactDao
-//
-//    companion object {
-//        var INSTANCE : AppDatabase? = null
-//
-//        fun getInstance(context: Context) : AppDatabase? {
-//            if (INSTANCE == null) {
-//                synchronized(AppDatabase::class) {
-//                    INSTANCE = Room.databaseBuilder(
-//                        context.applicationContext,
-//                        AppDatabase::class.java,
-//                        "mvvmsample.db"
-//                    ).build()
-//                }
-//
-//                return INSTANCE
-//            }
-//
-//            return INSTANCE
-//        }
-//
-//        fun destroyInstance() {
-//            INSTANCE = null
-//        }
-//    }
-//}
