@@ -5,10 +5,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = [(Text::class)], version = 1)
+@Database(entities = [(Text::class),
+                        (Vocabulary::class),
+                        (ChineseDictionary::class)],
+                        version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun textDao(): TextDao
+    abstract fun vocabularyDao(): VocabularyDao
+    abstract fun chineseDictionaryDao(): ChineseDictionaryDao
 
     companion object {
         var INSTANCE : AppDatabase? = null
