@@ -5,4 +5,9 @@
     <string name="menu_open">Open</string>
     <string name="menu_import">Import</string>
     <string name="menu_delete">Delete</string>
+
+    <string name="fragment_import_title">Add/Import Text</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_import_fragment_content">Input text here...</string>
+    <string name="save">Save</string>
 </resources>

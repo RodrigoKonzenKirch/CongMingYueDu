@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             when(menuItem.itemId){
                 R.id.nav_read_text -> nav_host_fragment.findNavController().navigate(R.id.textFragment)
                 R.id.nav_open_text -> Toast.makeText(this, "open not implemented yet", Toast.LENGTH_LONG).show()
-                R.id.nav_import_text -> Toast.makeText(this, "import not implemented yet", Toast.LENGTH_LONG).show()
+                R.id.nav_import_text -> nav_host_fragment.findNavController().navigate(R.id.importFragment)
                 R.id.nav_delete_text -> Toast.makeText(this, "delete not implemented yet", Toast.LENGTH_LONG).show()
                 else -> Toast.makeText(this, "ELSE", Toast.LENGTH_LONG).show()
 
