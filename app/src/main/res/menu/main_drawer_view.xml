@@ -11,17 +11,17 @@
 
     <item
         android:id="@+id/nav_open_text"
-        android:icon="@drawable/under_construction"
+        android:icon="@drawable/icon_opened_folder_96"
         android:title="@string/menu_open" />
 
     <item
         android:id="@+id/nav_import_text"
-        android:icon="@drawable/under_construction"
+        android:icon="@drawable/icon_import_96"
         android:title="@string/menu_import" />
 
     <item
         android:id="@+id/nav_delete_text"
-        android:icon="@drawable/under_construction"
+        android:icon="@drawable/icon_delete_96"
         android:title="@string/menu_delete" />
 
     </group>
