@@ -10,4 +10,5 @@
     <string name="hint_title">Title</string>
     <string name="hint_import_fragment_content">Input text here...</string>
     <string name="save">Save</string>
+    <string name="menu_vocabulary">Vocabulary</string>
 </resources>

@@ -19,6 +19,11 @@
         android:icon="@drawable/icon_import_96"
         android:title="@string/menu_import" />
 
+        <item
+        android:id="@+id/nav_show_vocabulary"
+        android:icon="@drawable/icon_vocabulary_96"
+        android:title="@string/menu_vocabulary"/>
+
     <item
         android:id="@+id/nav_delete_text"
         android:icon="@drawable/icon_delete_96"
