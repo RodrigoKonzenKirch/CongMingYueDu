@@ -24,7 +24,7 @@ abstract class AppDatabase : RoomDatabase() {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
-                        "texts-db.db"
+                        "database.db"
                     ).build()
                 }
                 return INSTANCE
@@ -36,4 +36,40 @@ abstract class AppDatabase : RoomDatabase() {
             INSTANCE = null
         }
     }
+
+//    TODO: [Implement] Finish populate database
+/*    fun populateDictionary(context: Context){
+
+        val dictionaryAsListOfStrings = context.assets.open("cedict_ts.u8").bufferedReader().readLines()
+
+        //List containing all entries of the dictionary, ready to
+        //populate the database
+        val dictEntries = mutableListOf<ChineseDictionary>()
+
+        dictionaryAsListOfStrings.forEach {
+            var tempString = it
+            val wordTraditional: String
+            val wordSimplified: String
+            val wordPinyin: String
+            var wordTranslation: String
+
+            if (tempString.indexOf(" ") > -1 &&
+                tempString.indexOf("[") > -1 &&
+                tempString.indexOf("]") > -1 &&
+                tempString.indexOf("/") > -1 &&
+                !tempString[0].equals("#")) {
+
+                wordTraditional = tempString.substring(0, tempString.indexOf(" "))
+                tempString = tempString.substring(tempString.indexOf(" ") + 1)
+                wordSimplified = tempString.substring(0, tempString.indexOf(" "))
+                wordPinyin = tempString.substring(tempString.indexOf("[")+1, tempString.indexOf("]"))
+                wordTranslation = tempString.substring(tempString.indexOf("/")+1)
+                wordTranslation = wordTranslation.removeSuffix("/")
+
+                dictEntries.add(ChineseDictionary(0, wordTraditional, wordSimplified, wordPinyin, wordTranslation))
+            }
+        }
+        System.out.println("DICT: "+dictEntries[2010])
+
+    }*/
 }
