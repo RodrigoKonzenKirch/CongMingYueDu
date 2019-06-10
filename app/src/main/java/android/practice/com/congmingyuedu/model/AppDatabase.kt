@@ -16,20 +16,24 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun chineseDictionaryDao(): ChineseDictionaryDao
 
     companion object {
-        var INSTANCE : AppDatabase? = null
+        @Volatile
+        private var INSTANCE : AppDatabase? = null
 
         fun getInstance(context: Context) : AppDatabase? {
-            if (INSTANCE == null){
-                synchronized(AppDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        AppDatabase::class.java,
-                        "database.db"
-                    ).build()
-                }
-                return INSTANCE
+            val tempInstance = INSTANCE
+            if (tempInstance != null){
+                return tempInstance
             }
-            return INSTANCE
+
+            synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "database.db"
+                ).build()
+                INSTANCE = instance
+                return instance
+                }
         }
 
         fun destroyInstance() {
