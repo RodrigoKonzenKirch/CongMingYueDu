@@ -34,10 +34,10 @@
             android:layout_marginRight="8dp"/>
 
     <Button
+            android:id="@+id/buttonSave"
             android:text="@string/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonSave"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
