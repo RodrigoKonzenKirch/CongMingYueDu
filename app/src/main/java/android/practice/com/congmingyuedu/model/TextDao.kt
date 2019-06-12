@@ -10,6 +10,9 @@ interface TextDao {
     @Query("SELECT * FROM texts")
     fun getAll(): List<Text>
 
+    @Query("SELECT * from texts where id = :id LIMIT 1")
+    fun getTextById(id: Int): Text
+
     @Insert
     fun insert(text: Text)
 
