@@ -1,7 +1,8 @@
 package android.practice.com.congmingyuedu.viewmodel
 
-import androidx.lifecycle.ViewModel;
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class GlossaryViewModel : ViewModel() {
+class GlossaryViewModel(application: Application) : AndroidViewModel(application) {
     // TODO: Implement the ViewModel
 }

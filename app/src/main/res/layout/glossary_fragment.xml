@@ -12,6 +12,6 @@
             android:id="@+id/textViewGlossaryFragment"
             android:text="glossary"
             android:clickable="true"
-            tools:text="Glossary fragment!"/>
+            tools:chineseText="Glossary fragment!"/>
 
 </FrameLayout>

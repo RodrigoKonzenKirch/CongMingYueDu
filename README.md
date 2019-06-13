@@ -1,7 +1,7 @@
 Chinese Reader App
 App's name: 聪明阅读 (CongMingYueDu)
 
-Chinese text reader for android developed in Kotlin.
+Chinese chineseText reader for android developed in Kotlin.
 
 It’s going to have functionalities to help learning new words while reading texts, like:
 

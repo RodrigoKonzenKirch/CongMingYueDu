@@ -8,12 +8,12 @@ import androidx.room.Query
 interface TextDao {
 
     @Query("SELECT * FROM texts")
-    fun getAll(): List<Text>
+    fun getAll(): List<ChineseText>
 
     @Query("SELECT * from texts where id = :id LIMIT 1")
-    fun getTextById(id: Int): Text
+    fun getTextById(id: Int): ChineseText
 
     @Insert
-    fun insert(text: Text)
+    fun insert(chineseText: ChineseText)
 
 }

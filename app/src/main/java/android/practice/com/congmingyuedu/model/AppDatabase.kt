@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = [(Text::class),
+@Database(entities = [(ChineseText::class),
                         (Vocabulary::class),
                         (ChineseDictionary::class)],
                         version = 1)
