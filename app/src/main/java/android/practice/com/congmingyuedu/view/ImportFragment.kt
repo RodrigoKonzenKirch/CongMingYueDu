@@ -55,8 +55,4 @@ class ImportFragment : Fragment() {
         }
 
     }
-
-    companion object {
-        fun newInstance() = ImportFragment()
-    }
 }

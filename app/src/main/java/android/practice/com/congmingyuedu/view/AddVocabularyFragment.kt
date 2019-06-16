@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.model.Vocabulary
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
@@ -35,6 +37,15 @@ class AddVocabularyFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        editTextAddVocabulary.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                buttonAddVocabulary.isEnabled = !editTextAddVocabulary.text.isBlank()
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
 
         buttonAddVocabulary.setOnClickListener {
             textViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString()))
