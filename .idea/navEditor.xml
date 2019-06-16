@@ -8,6 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="addVocabularyFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="348" />
+                            <option name="y" value="-306" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="glossaryFragment">
                     <value>
                       <LayoutPositions>
@@ -53,6 +65,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_textFragment_to_glossaryFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_textFragment_to_importFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

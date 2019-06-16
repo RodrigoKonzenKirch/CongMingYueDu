@@ -21,5 +21,4 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
     fun insertText(chineseText: ChineseText) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertText(chineseText)
     }
-    // TODO: Implement the ViewModel
 }

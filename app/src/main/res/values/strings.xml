@@ -12,4 +12,7 @@
     <string name="hint_import_fragment_content">Input chineseText here…</string>
     <string name="save">Save</string>
     <string name="menu_vocabulary">Vocabulary</string>
+    <string name="add_vocabulary_fragment_header">Add new vocabulary</string>
+    <string name="add_vocabulary_fragment_hint">Input new word or phrase here</string>
+    <string name="button_add_word_phrase">Add Word/Phrase</string>
 </resources>

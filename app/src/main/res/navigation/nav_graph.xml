@@ -14,7 +14,12 @@
                 app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <action android:id="@+id/action_textFragment_to_importFragment" app:destination="@id/importFragment"/>
+        <action android:id="@+id/action_textFragment_to_addVocabularyFragment"
+                app:destination="@id/addVocabularyFragment"/>
     </fragment>
     <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.view.ImportFragment"
               android:label="Add/Import" tools:layout="@layout/fragment_import"/>
+    <fragment android:id="@+id/addVocabularyFragment"
+              android:name="android.practice.com.congmingyuedu.view.AddVocabularyFragment"
+              android:label="Add vocabulary" tools:layout="@layout/fragment_add_vocabulary"/>
 </navigation>

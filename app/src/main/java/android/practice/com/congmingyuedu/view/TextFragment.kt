@@ -10,6 +10,8 @@ import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import android.widget.TextView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.text_fragment.*
 
 class TextFragment : Fragment() {
@@ -19,7 +21,6 @@ class TextFragment : Fragment() {
     }
 
     private lateinit var viewModel: TextViewModel
-    private lateinit var textView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,10 +33,12 @@ class TextFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
 
-        textView = textViewTextFragment
-        textView.setOnClickListener{view ->
+        textViewTextFragment.setOnClickListener{view ->
         view.findNavController().navigate(R.id.glossaryFragment)}
 
+        buttonTextFragment.setOnClickListener {
+            nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
+        }
         // TODO: Use the ViewModel
     }
 
