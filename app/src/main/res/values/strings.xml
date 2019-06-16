@@ -7,6 +7,7 @@
     <string name="menu_delete">Delete</string>
 
     <string name="fragment_import_title">Add/Import Text</string>
+    <string name="import_success">Text Imported successfully!</string>>
     <string name="hint_title">Title</string>
     <string name="hint_import_fragment_content">Input chineseText here…</string>
     <string name="save">Save</string>

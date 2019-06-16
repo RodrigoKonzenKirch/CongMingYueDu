@@ -9,7 +9,7 @@ class TextRepository(private val textDao: TextDao) {
 
 
     @WorkerThread
-    suspend fun insertText(chineseText: ChineseText){
+    fun insertText(chineseText: ChineseText){
         textDao.insert(chineseText)
     }
 }

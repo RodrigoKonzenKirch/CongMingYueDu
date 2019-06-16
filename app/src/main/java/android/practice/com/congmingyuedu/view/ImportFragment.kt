@@ -12,6 +12,7 @@ import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_import.*
 
 class ImportFragment : Fragment() {
@@ -48,8 +49,9 @@ class ImportFragment : Fragment() {
 
         buttonSave.setOnClickListener {
             textViewModel.insertText(ChineseText(null, editTextTitle.text.toString(), editTextContent.text.toString(),0))
-
-            //TODO [Implement] save title and content to database
+            editTextTitle.text.clear()
+            editTextContent.text.clear()
+            Snackbar.make(frameLayout, resources.getString(R.string.import_success), Snackbar.LENGTH_LONG).show()
         }
 
     }
