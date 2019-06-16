@@ -64,6 +64,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_textFragment_to_addVocabularyFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_textFragment_to_glossaryFragment">
                               <value>
                                 <LayoutPositions />

@@ -8,8 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.practice.com.congmingyuedu.R
+import android.practice.com.congmingyuedu.model.Vocabulary
+import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
+import kotlinx.android.synthetic.main.fragment_import.*
 
 class AddVocabularyFragment : Fragment() {
+
+    private lateinit var textViewModel: TextViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,5 +27,20 @@ class AddVocabularyFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_add_vocabulary, container, false)
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        buttonAddVocabulary.setOnClickListener {
+            textViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString()))
+            editTextAddVocabulary.text.clear()
+            Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()
+        }
+    }
 
 }
