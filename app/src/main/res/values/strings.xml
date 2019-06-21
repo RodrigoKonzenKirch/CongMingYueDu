@@ -17,4 +17,5 @@
     <string name="add_vocabulary_fragment_hint">Input new word or phrase here</string>
     <string name="button_add_word_phrase">Add Word/Phrase</string>
     <string name="button_add_word_or_phrase">Add Word or Phrase</string>
+    <string name="show_vocabulary_is_empty">Vocabulary list is empty!</string>
 </resources>

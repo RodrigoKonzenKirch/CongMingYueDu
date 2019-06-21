@@ -16,10 +16,15 @@
         <action android:id="@+id/action_textFragment_to_importFragment" app:destination="@id/importFragment"/>
         <action android:id="@+id/action_textFragment_to_addVocabularyFragment"
                 app:destination="@id/addVocabularyFragment"/>
+        <action android:id="@+id/action_textFragment_to_showVocabularyFragment"
+                app:destination="@id/showVocabularyFragment"/>
     </fragment>
     <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.view.ImportFragment"
               android:label="Add/Import" tools:layout="@layout/fragment_import"/>
     <fragment android:id="@+id/addVocabularyFragment"
               android:name="android.practice.com.congmingyuedu.view.AddVocabularyFragment"
               android:label="Add vocabulary" tools:layout="@layout/fragment_add_vocabulary"/>
+    <fragment android:id="@+id/showVocabularyFragment"
+              android:name="android.practice.com.congmingyuedu.view.ShowVocabularyFragment"
+              android:label="Vocabulary" tools:layout="@layout/fragment_show_vocabulary"/>
 </navigation>

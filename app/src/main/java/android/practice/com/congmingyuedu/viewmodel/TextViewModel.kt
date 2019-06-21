@@ -6,6 +6,7 @@ import android.practice.com.congmingyuedu.model.AppDatabase
 import android.practice.com.congmingyuedu.model.ChineseText
 import android.practice.com.congmingyuedu.model.Vocabulary
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,11 +14,13 @@ import kotlinx.coroutines.launch
 class TextViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
+    val allVocabulary: LiveData<List<Vocabulary>>
 
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
         val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
         repository = TextRepository(textDao, vocabularyDao)
+        allVocabulary = repository.allVocabulary
     }
 
     fun insertText(chineseText: ChineseText) = viewModelScope.launch(Dispatchers.IO) {

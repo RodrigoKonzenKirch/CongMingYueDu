@@ -9,13 +9,13 @@ import android.view.ViewGroup
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.model.Vocabulary
+import android.practice.com.congmingyuedu.utils.hideKeyboard
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
-import kotlinx.android.synthetic.main.fragment_import.*
 
 class AddVocabularyFragment : Fragment() {
 
@@ -50,6 +50,7 @@ class AddVocabularyFragment : Fragment() {
         buttonAddVocabulary.setOnClickListener {
             textViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString()))
             editTextAddVocabulary.text.clear()
+            hideKeyboard()
             Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()
         }
     }

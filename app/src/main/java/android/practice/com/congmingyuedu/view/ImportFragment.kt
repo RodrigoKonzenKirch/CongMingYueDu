@@ -1,11 +1,11 @@
 package android.practice.com.congmingyuedu.view
 
+import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.model.ChineseText
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
@@ -14,6 +14,7 @@ import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_import.*
+import android.practice.com.congmingyuedu.utils.hideKeyboard
 
 class ImportFragment : Fragment() {
 
@@ -27,14 +28,10 @@ class ImportFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_import, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
 
         // Only enable save button when title and content are not empty
         class MyTextWatcher: TextWatcher{
@@ -51,6 +48,7 @@ class ImportFragment : Fragment() {
             textViewModel.insertText(ChineseText(null, editTextTitle.text.toString(), editTextContent.text.toString(),0))
             editTextTitle.text.clear()
             editTextContent.text.clear()
+            hideKeyboard()
             Snackbar.make(frameLayout, resources.getString(R.string.import_success), Snackbar.LENGTH_LONG).show()
         }
 
