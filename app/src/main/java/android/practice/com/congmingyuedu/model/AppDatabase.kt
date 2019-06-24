@@ -11,7 +11,7 @@ import android.content.Context
                         version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun textDao(): TextDao
+    abstract fun textDao(): ChineseTextDao
     abstract fun vocabularyDao(): VocabularyDao
     abstract fun chineseDictionaryDao(): ChineseDictionaryDao
 

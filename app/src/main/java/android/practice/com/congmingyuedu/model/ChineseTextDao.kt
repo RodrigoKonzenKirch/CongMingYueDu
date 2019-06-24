@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface TextDao {
+interface ChineseTextDao {
 
     @Query("SELECT * FROM texts")
     fun getAll(): List<ChineseText>
