@@ -1,16 +1,15 @@
 package android.practice.com.congmingyuedu
 
-import android.practice.com.congmingyuedu.model.ChineseText
-import android.practice.com.congmingyuedu.model.ChineseTextDao
-import android.practice.com.congmingyuedu.model.Vocabulary
-import android.practice.com.congmingyuedu.model.VocabularyDao
+import android.content.Context
+import android.practice.com.congmingyuedu.model.*
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 
-class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao) {
+class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao, context: Context) {
 
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
-//    val currentText: LiveData<ChineseText>
+    private val sharedPref: SharedPreference = SharedPreference(context)
+    var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
 
     @WorkerThread
     fun insertText(chineseText: ChineseText){
@@ -33,5 +32,9 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
             }
         }
         return isOnDatabase
+    }
+
+    fun setCurrentTextId(id:Int){
+        sharedPref.save(sharedPref.PREF_NAME, id)
     }
 }

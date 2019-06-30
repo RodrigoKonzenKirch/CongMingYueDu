@@ -8,17 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
-import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.text_fragment.*
 
 class TextFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = TextFragment()
-    }
 
     private lateinit var viewModel: TextViewModel
 
@@ -34,12 +30,20 @@ class TextFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
 
         textViewTextFragment.setOnClickListener{view ->
-        view.findNavController().navigate(R.id.glossaryFragment)}
+            view.findNavController().navigate(R.id.glossaryFragment)
+        }
 
         buttonTextFragment.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
         }
-        // TODO: Use the ViewModel
+
+        viewModel.currentText.observe(this, Observer {
+            if (it == null){
+                textViewTextFragment.text = resources.getString(R.string.text_empty)
+            }else{
+                textViewTextFragment.text = it.textContent
+            }
+        })
     }
 
 }

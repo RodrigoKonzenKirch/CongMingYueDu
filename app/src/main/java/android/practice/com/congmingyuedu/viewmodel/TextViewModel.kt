@@ -15,12 +15,14 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
     val allVocabulary: LiveData<List<Vocabulary>>
+    val currentText: LiveData<ChineseText>
 
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
         val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
-        repository = TextRepository(textDao, vocabularyDao)
+        repository = TextRepository(textDao, vocabularyDao, application)
         allVocabulary = repository.allVocabulary
+        currentText = repository.currentText
     }
 
     fun insertText(chineseText: ChineseText) = viewModelScope.launch(Dispatchers.IO) {

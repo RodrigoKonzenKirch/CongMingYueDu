@@ -5,6 +5,7 @@
     <string name="menu_open">Open</string>
     <string name="menu_import">Import</string>
     <string name="menu_delete">Delete</string>
+    <string name="text_empty">Tap on menu -> [Open] and select a text to read!</string>
 
     <string name="fragment_import_title">Add/Import Text</string>
     <string name="import_success">Text Imported successfully!</string>>
@@ -18,4 +19,7 @@
     <string name="button_add_word_phrase">Add Word/Phrase</string>
     <string name="button_add_word_or_phrase">Add Word or Phrase</string>
     <string name="show_vocabulary_is_empty">Vocabulary list is empty!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
