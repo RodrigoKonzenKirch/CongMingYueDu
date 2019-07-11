@@ -53,6 +53,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="openTextFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="348" />
+                            <option name="y" value="-663" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="showVocabularyFragment">
                     <value>
                       <LayoutPositions>
@@ -87,6 +99,11 @@
                               </value>
                             </entry>
                             <entry key="action_textFragment_to_importFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_textFragment_to_openTextFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -9,7 +9,7 @@ import androidx.room.Query
 interface ChineseTextDao {
 
     @Query("SELECT * FROM texts")
-    fun getAll(): List<ChineseText>
+    fun getAll(): LiveData<List<ChineseText>>
 
     @Query("SELECT * from texts where id = :id LIMIT 1")
     fun getTextById(id: Int): LiveData<ChineseText>

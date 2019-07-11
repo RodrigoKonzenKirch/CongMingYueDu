@@ -18,6 +18,7 @@
                 app:destination="@id/addVocabularyFragment"/>
         <action android:id="@+id/action_textFragment_to_showVocabularyFragment"
                 app:destination="@id/showVocabularyFragment"/>
+        <action android:id="@+id/action_textFragment_to_openTextFragment" app:destination="@id/openTextFragment"/>
     </fragment>
     <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.view.ImportFragment"
               android:label="Add/Import" tools:layout="@layout/fragment_import"/>
@@ -27,4 +28,6 @@
     <fragment android:id="@+id/showVocabularyFragment"
               android:name="android.practice.com.congmingyuedu.view.ShowVocabularyFragment"
               android:label="Vocabulary" tools:layout="@layout/fragment_show_vocabulary"/>
+    <fragment android:id="@+id/openTextFragment" android:name="android.practice.com.congmingyuedu.view.OpenTextFragment"
+              android:label="fragment_open_text" tools:layout="@layout/fragment_open_text"/>
 </navigation>

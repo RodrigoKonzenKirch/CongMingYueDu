@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao, context: Context) {
 
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
+    val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()
     private val sharedPref: SharedPreference = SharedPreference(context)
     var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
 

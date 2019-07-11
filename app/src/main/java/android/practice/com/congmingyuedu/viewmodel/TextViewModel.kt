@@ -15,6 +15,7 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
     val allVocabulary: LiveData<List<Vocabulary>>
+    val allTexts: LiveData<List<ChineseText>>
     val currentText: LiveData<ChineseText>
 
     init {
@@ -22,6 +23,7 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
         val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
         repository = TextRepository(textDao, vocabularyDao, application)
         allVocabulary = repository.allVocabulary
+        allTexts = repository.allTexts
         currentText = repository.currentText
     }
 
@@ -31,5 +33,9 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insertVocabulary(vocabulary: Vocabulary) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertVocabulary(vocabulary)
+    }
+
+    fun setCurrentText(id: Int){
+        repository.setCurrentTextId(id)
     }
 }
