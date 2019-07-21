@@ -41,7 +41,10 @@ class TextFragment : Fragment() {
             if (it == null){
                 textViewTextFragment.text = resources.getString(R.string.text_empty)
             }else{
-                textViewTextFragment.text = it.textContent
+                var tempString = it.textContent.substring(it.page * viewModel.numberOfCharsPerPage)
+                if (tempString.length > viewModel.numberOfCharsPerPage)
+                    tempString = tempString.substring(0, viewModel.numberOfCharsPerPage)
+                textViewTextFragment.text = tempString
             }
         })
     }

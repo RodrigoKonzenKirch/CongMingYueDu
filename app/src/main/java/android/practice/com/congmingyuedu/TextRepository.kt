@@ -38,4 +38,8 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
     fun setCurrentTextId(id:Int){
         sharedPref.save(sharedPref.PREF_NAME, id)
     }
+
+    fun setCurrentTextPage(page: Int, id: Int){
+        chineseTextDao.setPageById(page, id)
+    }
 }

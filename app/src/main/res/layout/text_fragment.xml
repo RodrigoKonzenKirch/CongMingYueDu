@@ -11,6 +11,7 @@
     <TextView
             android:id="@+id/textViewTextFragment"
             android:clickable="true"
+            android:textIsSelectable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="你好世界。"
