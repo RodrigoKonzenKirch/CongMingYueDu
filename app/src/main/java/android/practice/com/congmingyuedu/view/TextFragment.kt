@@ -29,11 +29,16 @@ class TextFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
 
-        textViewTextFragment.setOnClickListener{view ->
-            view.findNavController().navigate(R.id.glossaryFragment)
+
+        buttonTextFragmentFlipToGlossaryLeft.setOnClickListener {
+            nav_host_fragment.findNavController().navigate(R.id.glossaryFragment)
         }
 
-        buttonTextFragment.setOnClickListener {
+        buttonTextFragmentFlipToGlossaryRight.setOnClickListener {
+            nav_host_fragment.findNavController().navigate(R.id.glossaryFragment)
+        }
+
+        buttonTextFragmentToAddVocabulary.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
         }
 

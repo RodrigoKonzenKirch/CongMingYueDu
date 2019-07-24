@@ -14,11 +14,10 @@
             android:textIsSelectable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="你好世界。"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/buttonTextFragment"
+            app:layout_constraintBottom_toTopOf="@+id/buttonTextFragmentToAddVocabulary"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
@@ -26,12 +25,12 @@
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="8dp"/>
     <Button
-            android:id="@+id/buttonTextFragment"
-            android:text="@string/button_add_word_phrase"
-            android:layout_width="match_parent"
+            android:id="@+id/buttonTextFragmentToAddVocabulary"
+            android:text="@string/button_add_vocabulary"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonTextFragmentFlipToGlossaryLeft"
+            app:layout_constraintEnd_toStartOf="@id/buttonTextFragmentFlipToGlossaryRight"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -39,4 +38,29 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"/>
 
+    <Button
+            android:id="@+id/buttonTextFragmentFlipToGlossaryLeft"
+            android:text="Flip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonTextFragmentToAddVocabulary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+    />
+
+    <Button
+            android:id="@+id/buttonTextFragmentFlipToGlossaryRight"
+            android:text="Flip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/buttonTextFragmentToAddVocabulary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,8 @@ import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.GlossaryViewModel
 import android.widget.TextView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.glossary_fragment.*
 import kotlinx.android.synthetic.main.text_fragment.*
 
@@ -33,6 +35,18 @@ class GlossaryFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(GlossaryViewModel::class.java)
+
+        buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
+            nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
+        }
+
+        buttonGlossaryFragmentFlipToTextLeft.setOnClickListener {
+            nav_host_fragment.findNavController().navigate(R.id.textFragment)
+        }
+
+        buttonGlossaryFragmentFlipToTextRight.setOnClickListener {
+            nav_host_fragment.findNavController().navigate(R.id.textFragment)
+        }
 
         textView = textViewGlossaryFragment
         textView.setOnClickListener{view ->
