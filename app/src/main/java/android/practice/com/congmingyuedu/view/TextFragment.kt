@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.text_fragment.*
@@ -46,10 +45,7 @@ class TextFragment : Fragment() {
             if (it == null){
                 textViewTextFragment.text = resources.getString(R.string.text_empty)
             }else{
-                var tempString = it.textContent.substring(it.page * viewModel.numberOfCharsPerPage)
-                if (tempString.length > viewModel.numberOfCharsPerPage)
-                    tempString = tempString.substring(0, viewModel.numberOfCharsPerPage)
-                textViewTextFragment.text = tempString
+                textViewTextFragment.text = it.textContent
             }
         })
     }

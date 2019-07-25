@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 
 class TextViewModel(application: Application) : AndroidViewModel(application) {
 
-    val numberOfCharsPerPage = 1000
     private val repository: TextRepository
     val allVocabulary: LiveData<List<Vocabulary>>
     val allTexts: LiveData<List<ChineseText>>

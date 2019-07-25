@@ -6,15 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.viewmodel.GlossaryViewModel
-import android.widget.TextView
-import androidx.navigation.findNavController
+import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.glossary_fragment.*
-import kotlinx.android.synthetic.main.text_fragment.*
 
 class GlossaryFragment : Fragment() {
 
@@ -22,8 +19,8 @@ class GlossaryFragment : Fragment() {
         fun newInstance() = GlossaryFragment()
     }
 
-    private lateinit var viewModel: GlossaryViewModel
-    private lateinit var textView: TextView
+    private var currentTextContent = ""
+    private lateinit var viewModel: TextViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +31,7 @@ class GlossaryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(GlossaryViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
 
         buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
@@ -48,11 +45,22 @@ class GlossaryFragment : Fragment() {
             nav_host_fragment.findNavController().navigate(R.id.textFragment)
         }
 
-        textView = textViewGlossaryFragment
-        textView.setOnClickListener{view ->
-            view.findNavController().navigate(R.id.textFragment)}
+        viewModel.currentText.observe(this, Observer {
+            currentTextContent = it.textContent
+        })
 
-        // TODO: Use the ViewModel
+        viewModel.allVocabulary.observe(this, Observer {
+            var glossaryStringResult = ""
+            if (it.isNotEmpty() && !currentTextContent.isNullOrEmpty()){
+                it.forEach{vocab ->
+                    if (currentTextContent.contains(vocab.vocabularyContent)) {
+                        glossaryStringResult += "-- [" + vocab.vocabularyContent+"] - " +
+                                "\n\n"
+                    }
+                }
+            }
+            textViewGlossaryFragment.text = glossaryStringResult
+        })
     }
 
 }
