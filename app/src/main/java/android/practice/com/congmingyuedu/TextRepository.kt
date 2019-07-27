@@ -4,11 +4,13 @@ import android.content.Context
 import android.practice.com.congmingyuedu.model.*
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao,
                      private val chineseDictionaryDao: ChineseDictionaryDao, context: Context) {
 
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
+    val allVocabularyWithDictDefinition: LiveData<List<ChineseDictionary>> = getVocabWithDefinition()
     val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()
     private val sharedPref: SharedPreference = SharedPreference(context)
     var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
@@ -34,6 +36,26 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
             }
         }
         return isOnDatabase
+    }
+
+    private fun getVocabWithDefinition():MutableLiveData<List<ChineseDictionary>>{
+        val resultList = MutableLiveData<List<ChineseDictionary>>()
+        val allVocabularyTemp = allVocabulary.value
+        var tempListOfWords = mutableListOf<ChineseDictionary>()
+
+        if (!allVocabularyTemp.isNullOrEmpty()) {
+            allVocabularyTemp.forEach{
+                val wordWithDefinition = getWordFromChineseDictionary(it.vocabularyContent)
+
+                if (wordWithDefinition.wordSimplified.isBlank()){
+                    tempListOfWords.add(ChineseDictionary(0, "", it.vocabularyContent, "", ""))
+                } else {
+                    tempListOfWords.add(wordWithDefinition)
+                }
+            }
+            resultList.value = tempListOfWords
+        }
+        return resultList
     }
 
     fun setCurrentTextId(id:Int){
