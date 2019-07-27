@@ -7,6 +7,9 @@ import androidx.room.Query
 @Dao
 interface ChineseDictionaryDao {
 
+    @Query("SELECT * FROM chinese_dictionary WHERE word_simplified = :word")
+    fun getWord(word:String): ChineseDictionary
+
     @Query("SELECT * FROM chinese_dictionary")
     fun getAll(): List<ChineseDictionary>
 
