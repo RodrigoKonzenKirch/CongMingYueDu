@@ -12,6 +12,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.glossary_fragment.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class GlossaryFragment : Fragment() {
 
@@ -53,10 +56,22 @@ class GlossaryFragment : Fragment() {
             var glossaryStringResult = ""
             if (it.isNotEmpty() && !currentTextContent.isNullOrEmpty()){
                 it.forEach{vocab ->
-                    if (currentTextContent.contains(vocab.vocabularyContent)) {
-                        glossaryStringResult += "-- [" + vocab.vocabularyContent+"] - " +
-                                "\n\n"
-                    }
+//                    GlobalScope.launch(Dispatchers.IO){
+//                        val tempWordFromDictionary = viewModel.getWordFromChineseDictionary(vocab.vocabularyContent)
+//                        if (currentTextContent.contains(vocab.vocabularyContent)) {
+//                            glossaryStringResult += "-- [" + vocab.vocabularyContent+"] -- " +
+//                                    tempWordFromDictionary.wordSimplified+" "+tempWordFromDictionary.wordTraditional+" "+
+//                                    tempWordFromDictionary.wordPinyin+"\n"+tempWordFromDictionary.wordTranslation+
+//                                    "\n\n"
+//                        }
+//                    }
+//                    val tempWordFromDictionary = viewModel.getWordFromChineseDictionary(vocab.vocabularyContent)
+//                    if (currentTextContent.contains(vocab.vocabularyContent)) {
+//                        glossaryStringResult += "-- [" + vocab.vocabularyContent+"] -- " +
+//                                tempWordFromDictionary.wordSimplified+" "+tempWordFromDictionary.wordTraditional+" "+
+//                                tempWordFromDictionary.wordPinyin+"\n"+tempWordFromDictionary.wordTranslation+
+//                                "\n\n"
+//                    }
                 }
             }
             textViewGlossaryFragment.text = glossaryStringResult

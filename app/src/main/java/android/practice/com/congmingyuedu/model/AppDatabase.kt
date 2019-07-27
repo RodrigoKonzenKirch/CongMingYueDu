@@ -4,6 +4,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
+import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Database(entities = [(ChineseText::class),
                         (Vocabulary::class),
@@ -30,7 +34,46 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "database.db"
-                ).build()
+                ).addCallback(object: Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        GlobalScope.launch(Dispatchers.IO) {
+                            val chineseDictionaryDao = getInstance(context)!!.chineseDictionaryDao()
+                            if (chineseDictionaryDao.getCountDictionary() <= 0) {
+
+                                val listOfWordsFromFile = context.assets.open("cedict_ts.u8").bufferedReader().readLines()
+
+                                val listOfWordsFormatedForDB = mutableListOf<ChineseDictionary>()
+
+                                listOfWordsFromFile.forEach {
+                                    var tempString = it
+                                    val wordTraditional: String
+                                    val wordSimplified: String
+                                    val wordPinyin: String
+                                    var wordTranslation: String
+
+                                    if (tempString.indexOf(" ") > -1 &&
+                                        tempString.indexOf("[") > -1 &&
+                                        tempString.indexOf("]") > -1 &&
+                                        tempString.indexOf("/") > -1 &&
+                                        !tempString[0].equals("#")) {
+
+                                        wordTraditional = tempString.substring(0, tempString.indexOf(" "))
+                                        tempString = tempString.substring(tempString.indexOf(" ") + 1)
+                                        wordSimplified = tempString.substring(0, tempString.indexOf(" "))
+                                        wordPinyin = tempString.substring(tempString.indexOf("[")+1, tempString.indexOf("]"))
+                                        wordTranslation = tempString.substring(tempString.indexOf("/")+1)
+                                        wordTranslation = wordTranslation.removeSuffix("/")
+
+                                        listOfWordsFormatedForDB.add(ChineseDictionary(null, wordTraditional, wordSimplified, wordPinyin, wordTranslation))
+                                    }
+                                }
+                                chineseDictionaryDao.insertAll(listOfWordsFormatedForDB.toList())
+                            }
+                        }
+                    }
+
+                }).build()
                 INSTANCE = instance
                 return instance
                 }
@@ -40,40 +83,4 @@ abstract class AppDatabase : RoomDatabase() {
             INSTANCE = null
         }
     }
-
-//    TODO: [Implement] Finish populate database
-/*    fun populateDictionary(context: Context){
-
-        val dictionaryAsListOfStrings = context.assets.open("cedict_ts.u8").bufferedReader().readLines()
-
-        //List containing all entries of the dictionary, ready to
-        //populate the database
-        val dictEntries = mutableListOf<ChineseDictionary>()
-
-        dictionaryAsListOfStrings.forEach {
-            var tempString = it
-            val wordTraditional: String
-            val wordSimplified: String
-            val wordPinyin: String
-            var wordTranslation: String
-
-            if (tempString.indexOf(" ") > -1 &&
-                tempString.indexOf("[") > -1 &&
-                tempString.indexOf("]") > -1 &&
-                tempString.indexOf("/") > -1 &&
-                !tempString[0].equals("#")) {
-
-                wordTraditional = tempString.substring(0, tempString.indexOf(" "))
-                tempString = tempString.substring(tempString.indexOf(" ") + 1)
-                wordSimplified = tempString.substring(0, tempString.indexOf(" "))
-                wordPinyin = tempString.substring(tempString.indexOf("[")+1, tempString.indexOf("]"))
-                wordTranslation = tempString.substring(tempString.indexOf("/")+1)
-                wordTranslation = wordTranslation.removeSuffix("/")
-
-                dictEntries.add(ChineseDictionary(0, wordTraditional, wordSimplified, wordPinyin, wordTranslation))
-            }
-        }
-        System.out.println("DICT: "+dictEntries[2010])
-
-    }*/
 }

@@ -40,6 +40,10 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
         sharedPref.save(sharedPref.PREF_NAME, id)
     }
 
+    fun getWordFromChineseDictionary(word: String): ChineseDictionary {
+        return chineseDictionaryDao.getWord(word)
+    }
+
     fun setCurrentTextPage(page: Int, id: Int){
         chineseTextDao.setPageById(page, id)
     }

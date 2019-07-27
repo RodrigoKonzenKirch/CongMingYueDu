@@ -3,6 +3,7 @@ package android.practice.com.congmingyuedu.viewmodel
 import android.app.Application
 import android.practice.com.congmingyuedu.TextRepository
 import android.practice.com.congmingyuedu.model.AppDatabase
+import android.practice.com.congmingyuedu.model.ChineseDictionary
 import android.practice.com.congmingyuedu.model.ChineseText
 import android.practice.com.congmingyuedu.model.Vocabulary
 import androidx.lifecycle.AndroidViewModel
@@ -34,6 +35,10 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insertVocabulary(vocabulary: Vocabulary) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertVocabulary(vocabulary)
+    }
+
+    fun getWordFromChineseDictionary(word: String): ChineseDictionary {
+         return repository.getWordFromChineseDictionary(word)
     }
 
     fun setCurrentText(id: Int){
