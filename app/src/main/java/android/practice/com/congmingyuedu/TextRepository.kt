@@ -5,7 +5,8 @@ import android.practice.com.congmingyuedu.model.*
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 
-class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao, context: Context) {
+class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao,
+                     private val chineseDictionaryDao: ChineseDictionaryDao, context: Context) {
 
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
     val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()

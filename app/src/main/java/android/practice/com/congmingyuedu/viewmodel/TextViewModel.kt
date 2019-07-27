@@ -21,7 +21,8 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
         val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
-        repository = TextRepository(textDao, vocabularyDao, application)
+        val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
+        repository = TextRepository(textDao, vocabularyDao, dictionaryDao, application)
         allVocabulary = repository.allVocabulary
         allTexts = repository.allTexts
         currentText = repository.currentText
