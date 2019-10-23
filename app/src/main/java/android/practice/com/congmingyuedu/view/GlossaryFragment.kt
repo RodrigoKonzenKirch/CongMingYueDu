@@ -22,7 +22,6 @@ class GlossaryFragment : Fragment() {
         fun newInstance() = GlossaryFragment()
     }
 
-    private var currentTextContent = ""
     private lateinit var viewModel: TextViewModel
 
     override fun onCreateView(
@@ -48,34 +47,5 @@ class GlossaryFragment : Fragment() {
             nav_host_fragment.findNavController().navigate(R.id.textFragment)
         }
 
-        viewModel.currentText.observe(this, Observer {
-            currentTextContent = it.textContent
-        })
-
-        viewModel.allVocabulary.observe(this, Observer {
-            var glossaryStringResult = ""
-            if (it.isNotEmpty() && !currentTextContent.isNullOrEmpty()){
-                it.forEach{vocab ->
-//                    GlobalScope.launch(Dispatchers.IO){
-//                        val tempWordFromDictionary = viewModel.getWordFromChineseDictionary(vocab.vocabularyContent)
-//                        if (currentTextContent.contains(vocab.vocabularyContent)) {
-//                            glossaryStringResult += "-- [" + vocab.vocabularyContent+"] -- " +
-//                                    tempWordFromDictionary.wordSimplified+" "+tempWordFromDictionary.wordTraditional+" "+
-//                                    tempWordFromDictionary.wordPinyin+"\n"+tempWordFromDictionary.wordTranslation+
-//                                    "\n\n"
-//                        }
-//                    }
-//                    val tempWordFromDictionary = viewModel.getWordFromChineseDictionary(vocab.vocabularyContent)
-//                    if (currentTextContent.contains(vocab.vocabularyContent)) {
-//                        glossaryStringResult += "-- [" + vocab.vocabularyContent+"] -- " +
-//                                tempWordFromDictionary.wordSimplified+" "+tempWordFromDictionary.wordTraditional+" "+
-//                                tempWordFromDictionary.wordPinyin+"\n"+tempWordFromDictionary.wordTranslation+
-//                                "\n\n"
-//                    }
-                }
-            }
-            textViewGlossaryFragment.text = glossaryStringResult
-        })
     }
-
 }

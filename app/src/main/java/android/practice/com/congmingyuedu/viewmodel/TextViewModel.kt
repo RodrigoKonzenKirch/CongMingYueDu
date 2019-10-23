@@ -16,6 +16,7 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
     val allVocabulary: LiveData<List<Vocabulary>>
+    val allVocabularyWithDefinition: LiveData<List<ChineseDictionary>>
     val allTexts: LiveData<List<ChineseText>>
     val currentText: LiveData<ChineseText>
 
@@ -25,6 +26,7 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
         val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
         repository = TextRepository(textDao, vocabularyDao, dictionaryDao, application)
         allVocabulary = repository.allVocabulary
+        allVocabularyWithDefinition = repository.allVocabularyWithDictDefinition
         allTexts = repository.allTexts
         currentText = repository.currentText
     }
