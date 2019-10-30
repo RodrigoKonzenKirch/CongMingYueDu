@@ -43,7 +43,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                                 val listOfWordsFromFile = context.assets.open("cedict_ts.u8").bufferedReader().readLines()
 
-                                val listOfWordsFormatedForDB = mutableListOf<ChineseDictionary>()
+                                val listOfWordsFormattedForDB = mutableListOf<ChineseDictionary>()
 
                                 listOfWordsFromFile.forEach {
                                     var tempString = it
@@ -65,10 +65,10 @@ abstract class AppDatabase : RoomDatabase() {
                                         wordTranslation = tempString.substring(tempString.indexOf("/")+1)
                                         wordTranslation = wordTranslation.removeSuffix("/")
 
-                                        listOfWordsFormatedForDB.add(ChineseDictionary(null, wordTraditional, wordSimplified, wordPinyin, wordTranslation))
+                                        listOfWordsFormattedForDB.add(ChineseDictionary(null, wordTraditional, wordSimplified, wordPinyin, wordTranslation))
                                     }
                                 }
-                                chineseDictionaryDao.insertAll(listOfWordsFormatedForDB.toList())
+                                chineseDictionaryDao.insertAll(listOfWordsFormattedForDB.toList())
                             }
                         }
                     }
