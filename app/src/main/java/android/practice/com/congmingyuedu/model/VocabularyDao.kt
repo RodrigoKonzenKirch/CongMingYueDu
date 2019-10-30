@@ -12,6 +12,6 @@ interface VocabularyDao {
     @Query("SELECT * FROM vocabulary ORDER BY vocabulary_content ASC")
     fun getAll(): LiveData<List<Vocabulary>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vocabulary: Vocabulary)
 }
