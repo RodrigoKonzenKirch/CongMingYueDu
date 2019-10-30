@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "vocabulary", indices = [Index(value = ["vocabulary_content"], unique = true)])
 data class Vocabulary(
     @ColumnInfo(name="id") @PrimaryKey(autoGenerate = true) var id: Long?,
-    @ColumnInfo(name="vocabulary_content") var vocabularyContent: String
+    @ColumnInfo(name="vocabulary_content") var vocabularyContent: String,
+    @ColumnInfo(name = "vocabulary_stared") var vocabularyStared: Boolean
 ) {
-    constructor() : this(null, "")
+    constructor() : this(null, "", false)
 }
