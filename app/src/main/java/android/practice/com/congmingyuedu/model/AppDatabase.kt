@@ -56,7 +56,7 @@ abstract class AppDatabase : RoomDatabase() {
                                         tempString.indexOf("[") > -1 &&
                                         tempString.indexOf("]") > -1 &&
                                         tempString.indexOf("/") > -1 &&
-                                        !tempString[0].equals("#")) {
+                                        tempString[0] != '#') {
 
                                         wordTraditional = tempString.substring(0, tempString.indexOf(" "))
                                         tempString = tempString.substring(tempString.indexOf(" ") + 1)
