@@ -6,11 +6,8 @@
              tools:context=".view.ShowVocabularyFragment"
              android:id="@+id/show_vocabulary_layout">
 
-    <TextView
-            android:id="@+id/textViewShowVocabulary"
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewShowVocabulary"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            android:text="@string/show_vocabulary_is_empty"/>
-
+            android:layout_height="match_parent" />
 </FrameLayout>

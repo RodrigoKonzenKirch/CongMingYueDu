@@ -1,10 +1,7 @@
 package android.practice.com.congmingyuedu.model
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface VocabularyDao {
@@ -14,4 +11,7 @@ interface VocabularyDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vocabulary: Vocabulary)
+
+    @Query("UPDATE vocabulary SET vocabulary_starred = :isStarred WHERE id = :id")
+    fun setVocabularyStarred(isStarred: Boolean, id: Long)
 }

@@ -46,4 +46,8 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
     fun setCurrentText(id: Int){
         repository.setCurrentTextId(id)
     }
+
+    fun setVocabularyStared(isStarred: Boolean, id: Long) = viewModelScope.launch(Dispatchers.IO){
+        repository.setVocabularyStarred(isStarred, id)
+    }
 }

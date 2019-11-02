@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.practice.com.congmingyuedu.R
+import android.practice.com.congmingyuedu.adapters.ShowVocabularyListAdapter
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_show_vocabulary.*
 import java.lang.StringBuilder
 
@@ -31,6 +33,18 @@ class ShowVocabularyFragment : Fragment() {
         textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
         //TODO Change this temporary solution into a more elegant interface with info from the dictionary(not implemented yet)
 
+        val recyclerView = recyclerviewShowVocabulary
+        val adapter = ShowVocabularyListAdapter(textViewModel)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(view?.context)
+
+        textViewModel.allVocabulary.observe(this, Observer { vocabularyList ->
+            vocabularyList?.let { adapter.setVocabularyList(it) }
+        })
+
+
+
+/*
         var formattedVocabulary: String
         val stringBuilder= StringBuilder()
         textViewModel.allVocabulary.observe(this, Observer { vocabulary ->
@@ -43,7 +57,7 @@ class ShowVocabularyFragment : Fragment() {
                 formattedVocabulary = "Your vocabulary list is empty!"
             }
             textViewShowVocabulary.text = formattedVocabulary
-        })
+        })*/
     }
 
 }

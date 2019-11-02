@@ -41,7 +41,7 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
     private fun getVocabWithDefinition():MutableLiveData<List<ChineseDictionary>>{
         val resultList = MutableLiveData<List<ChineseDictionary>>()
         val allVocabularyTemp = allVocabulary.value
-        var tempListOfWords = mutableListOf<ChineseDictionary>()
+        val tempListOfWords = mutableListOf<ChineseDictionary>()
 
         if (!allVocabularyTemp.isNullOrEmpty()) {
             allVocabularyTemp.forEach{
@@ -64,6 +64,10 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
 
     fun getWordFromChineseDictionary(word: String): ChineseDictionary {
         return chineseDictionaryDao.getWord(word)
+    }
+
+    fun setVocabularyStarred(isStarred: Boolean, id: Long){
+        vocabularyDao.setVocabularyStarred(isStarred, id)
     }
 
     fun setCurrentTextPage(page: Int, id: Int){

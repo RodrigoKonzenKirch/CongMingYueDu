@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class Vocabulary(
     @ColumnInfo(name="id") @PrimaryKey(autoGenerate = true) var id: Long?,
     @ColumnInfo(name="vocabulary_content") var vocabularyContent: String,
-    @ColumnInfo(name = "vocabulary_stared") var vocabularyStared: Boolean
+    @ColumnInfo(name = "vocabulary_starred") var vocabularyStarred: Boolean
 ) {
     constructor() : this(null, "", false)
 }
