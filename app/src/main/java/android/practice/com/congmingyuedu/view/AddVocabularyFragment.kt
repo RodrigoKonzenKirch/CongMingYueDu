@@ -48,7 +48,7 @@ class AddVocabularyFragment : Fragment() {
         })
 
         buttonAddVocabulary.setOnClickListener {
-            textViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString(), false, ""))
+            textViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString(), false, editTextExtraInfo.text.toString()))
             editTextAddVocabulary.text.clear()
             hideKeyboard()
             Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()

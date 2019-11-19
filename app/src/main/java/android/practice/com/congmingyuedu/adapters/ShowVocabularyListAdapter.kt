@@ -18,6 +18,7 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: TextViewMode
     inner class ShowVocabularyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val imageViewItem: ImageView = itemView.imageViewShowVocabulary
         val textViewItem: TextView = itemView.textViewShowVocabulary
+        val textViewItemExtraInfo: TextView = itemView.textViewShowVocabularyExtraInfo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowVocabularyViewHolder {
@@ -37,6 +38,7 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: TextViewMode
             if (vocabularyList[position].id != null)
                 viewModel.setVocabularyStared(!vocabularyList[position].vocabularyStarred, vocabularyList[position].id!!)
         }
+        holder.textViewItemExtraInfo.text = vocabularyList[position].vocabularyExtraInfo
     }
 
 
