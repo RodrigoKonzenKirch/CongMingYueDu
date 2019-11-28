@@ -20,21 +20,17 @@
         <TextView
                 android:id="@+id/textViewTextFragment"
                 android:text="@{viewModel.currentText.textContent}"
-                android:clickable="true"
                 android:textIsSelectable="true"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:textSize="16sp"
+                android:lineSpacingExtra="2dp"
+                android:scrollX="0dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/buttonTextFragmentToAddVocabulary"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_margin="12dp" />
 
         <Button
                 android:id="@+id/buttonTextFragmentToAddVocabulary"
@@ -52,7 +48,7 @@
 
         <Button
                 android:id="@+id/buttonTextFragmentFlipToGlossaryLeft"
-                android:text="Flip"
+                android:text="@string/glossary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +60,7 @@
 
         <Button
                 android:id="@+id/buttonTextFragmentFlipToGlossaryRight"
-                android:text="Flip"
+                android:text="@string/glossary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/buttonTextFragmentToAddVocabulary"
