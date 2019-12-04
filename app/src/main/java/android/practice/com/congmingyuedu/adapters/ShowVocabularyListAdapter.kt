@@ -34,7 +34,7 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: TextViewMode
             holder.imageViewItem.setImageResource(R.drawable.starred_false50x50)
 
         holder.textViewItem.text = vocabularyList[position].vocabularyContent
-        holder.itemView.setOnClickListener{
+        holder.imageViewItem.setOnClickListener{
             if (vocabularyList[position].id != null)
                 viewModel.setVocabularyStared(!vocabularyList[position].vocabularyStarred, vocabularyList[position].id!!)
         }
