@@ -42,22 +42,6 @@ class ShowVocabularyFragment : Fragment() {
             vocabularyList?.let { adapter.setVocabularyList(it) }
         })
 
-
-
-/*
-        var formattedVocabulary: String
-        val stringBuilder= StringBuilder()
-        textViewModel.allVocabulary.observe(this, Observer { vocabulary ->
-            if (vocabulary.isNotEmpty()){
-                vocabulary.forEach{
-                    stringBuilder.append("- "+it.vocabularyContent+"\n")
-                }
-                formattedVocabulary = stringBuilder.toString()
-            }else{
-                formattedVocabulary = "Your vocabulary list is empty!"
-            }
-            textViewShowVocabulary.text = formattedVocabulary
-        })*/
     }
 
 }
