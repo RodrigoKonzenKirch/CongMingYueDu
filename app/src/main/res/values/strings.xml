@@ -16,12 +16,13 @@
     <string name="add_vocabulary_fragment_header">Add new vocabulary</string>
     <string name="add_vocabulary_success">Word/Phrase added successfully!</string>
     <string name="add_vocabulary_fragment_hint">Input new word or phrase here</string>
-    <string name="add_vocabulary_fragment_hint_extra_info">Info about the vocabulary here</string>
+    <string name="add_vocabulary_fragment_hint_extra_info">Info about the vocabulary</string>
     <string name="button_add_vocabulary">加生词</string>
     <string name="button_add_word_or_phrase">Add Word or Phrase</string>
     <string name="show_vocabulary_is_empty">Vocabulary list is empty!</string>
+    <string name="button_glossary">词汇表</string>
+    <string name="button_text">文章</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="glossary">词汇表</string>
 </resources>

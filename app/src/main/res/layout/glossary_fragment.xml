@@ -23,6 +23,7 @@
             android:text="@string/button_add_vocabulary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:layout_constraintStart_toEndOf="@id/buttonGlossaryFragmentFlipToTextLeft"
             app:layout_constraintEnd_toStartOf="@id/buttonGlossaryFragmentFlipToTextRight"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -34,9 +35,10 @@
 
     <Button
             android:id="@+id/buttonGlossaryFragmentFlipToTextLeft"
-            android:text="Flip"
+            android:text="@string/button_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/buttonGlossaryFragmentToAddVocabulary"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,9 +49,10 @@
 
     <Button
             android:id="@+id/buttonGlossaryFragmentFlipToTextRight"
-            android:text="Flip"
+            android:text="@string/button_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:layout_constraintStart_toEndOf="@id/buttonGlossaryFragmentToAddVocabulary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
