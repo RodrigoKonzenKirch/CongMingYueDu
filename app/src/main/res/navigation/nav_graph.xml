@@ -27,7 +27,16 @@
               android:label="Add vocabulary" tools:layout="@layout/fragment_add_vocabulary"/>
     <fragment android:id="@+id/showVocabularyFragment"
               android:name="android.practice.com.congmingyuedu.view.ShowVocabularyFragment"
-              android:label="Vocabulary" tools:layout="@layout/fragment_show_vocabulary"/>
+              android:label="Vocabulary" tools:layout="@layout/fragment_show_vocabulary">
+        <action
+                android:id="@+id/action_showVocabularyFragment_to_vocabularyDetailsFragment"
+                app:destination="@id/vocabularyDetailsFragment" />
+    </fragment>
     <fragment android:id="@+id/openTextFragment" android:name="android.practice.com.congmingyuedu.view.OpenTextFragment"
               android:label="fragment_open_text" tools:layout="@layout/fragment_open_text"/>
+    <fragment
+            android:id="@+id/vocabularyDetailsFragment"
+            android:name="android.practice.com.congmingyuedu.view.VocabularyDetailsFragment"
+            android:label="fragment_vocabulary_details"
+            tools:layout="@layout/fragment_vocabulary_details" />
 </navigation>
