@@ -38,5 +38,9 @@
             android:id="@+id/vocabularyDetailsFragment"
             android:name="android.practice.com.congmingyuedu.view.VocabularyDetailsFragment"
             android:label="fragment_vocabulary_details"
-            tools:layout="@layout/fragment_vocabulary_details" />
+            tools:layout="@layout/fragment_vocabulary_details" >
+        <argument
+                android:name="vocabularyIdArg"
+                app:argType="integer" />
+    </fragment>
 </navigation>

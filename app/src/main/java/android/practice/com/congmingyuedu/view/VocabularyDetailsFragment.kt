@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.navArgs
 
 class VocabularyDetailsFragment : Fragment() {
 
     private lateinit var textViewModel: TextViewModel
+    val args: VocabularyDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +28,8 @@ class VocabularyDetailsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+        val vocabularyId = args.vocabularyIdArg
+
 
 
     }

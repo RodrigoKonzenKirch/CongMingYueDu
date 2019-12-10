@@ -2,12 +2,14 @@ package android.practice.com.congmingyuedu.adapters
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.model.Vocabulary
+import android.practice.com.congmingyuedu.view.ShowVocabularyFragmentDirections
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recyclerview_item_show_vocabulary.view.*
 
@@ -38,6 +40,14 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: TextViewMode
             if (vocabularyList[position].id != null)
                 viewModel.setVocabularyStared(!vocabularyList[position].vocabularyStarred, vocabularyList[position].id!!)
         }
+
+        holder.textViewItem.setOnClickListener {
+            if (vocabularyList[position].id != null){
+                val action = ShowVocabularyFragmentDirections.actionShowVocabularyFragmentToVocabularyDetailsFragment(vocabularyList[position].id!!.toInt())
+                Navigation.findNavController(holder.textViewItem).navigate(action)
+            }
+        }
+
         holder.textViewItemExtraInfo.text = vocabularyList[position].vocabularyExtraInfo
     }
 
