@@ -8,12 +8,13 @@ import android.view.ViewGroup
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
 
 class VocabularyDetailsFragment : Fragment() {
 
-    private lateinit var textViewModel: TextViewModel
+    private lateinit var vocabularyViewModel: VocabularyViewModel
     val args: VocabularyDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -27,7 +28,7 @@ class VocabularyDetailsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+        vocabularyViewModel = ViewModelProviders.of(this).get(VocabularyViewModel::class.java)
         val vocabularyId = args.vocabularyIdArg
 
 

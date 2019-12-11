@@ -4,6 +4,7 @@ import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.model.Vocabulary
 import android.practice.com.congmingyuedu.view.ShowVocabularyFragmentDirections
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recyclerview_item_show_vocabulary.view.*
 
-class ShowVocabularyListAdapter internal constructor(val viewModel: TextViewModel): RecyclerView.Adapter<ShowVocabularyListAdapter.ShowVocabularyViewHolder>(){
+class ShowVocabularyListAdapter internal constructor(val viewModel: VocabularyViewModel): RecyclerView.Adapter<ShowVocabularyListAdapter.ShowVocabularyViewHolder>(){
 
     private var vocabularyList = emptyList<Vocabulary>()
 

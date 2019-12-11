@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.model.Vocabulary
 import android.practice.com.congmingyuedu.utils.hideKeyboard
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
 
 class AddVocabularyFragment : Fragment() {
 
-    private lateinit var textViewModel: TextViewModel
+    private lateinit var vocabularyViewModel: VocabularyViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +32,7 @@ class AddVocabularyFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+        vocabularyViewModel = ViewModelProviders.of(this).get(VocabularyViewModel::class.java)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -48,7 +48,7 @@ class AddVocabularyFragment : Fragment() {
         })
 
         buttonAddVocabulary.setOnClickListener {
-            textViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString(), false, editTextExtraInfo.text.toString()))
+            vocabularyViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString(), false, editTextExtraInfo.text.toString()))
             editTextAddVocabulary.text.clear()
             hideKeyboard()
             Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()

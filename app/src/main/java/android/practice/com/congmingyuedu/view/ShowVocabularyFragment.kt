@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.adapters.ShowVocabularyListAdapter
 import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +18,7 @@ import java.lang.StringBuilder
 
 class ShowVocabularyFragment : Fragment() {
 
-    private lateinit var textViewModel: TextViewModel
+    private lateinit var vocabularyViewModel: VocabularyViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,15 +31,14 @@ class ShowVocabularyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
-        //TODO Change this temporary solution into a more elegant interface with info from the dictionary(not implemented yet)
+        vocabularyViewModel = ViewModelProviders.of(this).get(VocabularyViewModel::class.java)
 
         val recyclerView = recyclerviewShowVocabulary
-        val adapter = ShowVocabularyListAdapter(textViewModel)
+        val adapter = ShowVocabularyListAdapter(vocabularyViewModel)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        textViewModel.allVocabulary.observe(this, Observer { vocabularyList ->
+        vocabularyViewModel.allVocabulary.observe(this, Observer { vocabularyList ->
             vocabularyList?.let { adapter.setVocabularyList(it) }
         })
 
