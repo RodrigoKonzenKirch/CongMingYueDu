@@ -44,6 +44,6 @@
             tools:layout="@layout/fragment_vocabulary_details">
         <argument
                 android:name="vocabularyIdArg"
-                app:argType="integer" />
+                app:argType="long" />
     </fragment>
 </navigation>

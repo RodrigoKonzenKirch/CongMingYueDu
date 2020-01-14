@@ -5,33 +5,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.databinding.FragmentVocabularyDetailsBinding
 import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 
 class VocabularyDetailsFragment : Fragment() {
 
-    private lateinit var vocabularyViewModel: VocabularyViewModel
-    val args: VocabularyDetailsFragmentArgs by navArgs()
+    private val vocabularyViewModel: VocabularyViewModel by viewModels()
+    private val args: VocabularyDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vocabulary_details, container, false)
+        return FragmentVocabularyDetailsBinding.inflate(inflater, container, false
+        ).apply {
+            this.lifecycleOwner = this@VocabularyDetailsFragment
+            this.viewModel = vocabularyViewModel
+        }.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        vocabularyViewModel = ViewModelProviders.of(this).get(VocabularyViewModel::class.java)
-        val vocabularyId = args.vocabularyIdArg
-
-
-
+        vocabularyViewModel.setUpVocabularyDetailsById(args.vocabularyIdArg)
     }
 }

@@ -44,7 +44,7 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: VocabularyVi
 
         holder.textViewItem.setOnClickListener {
             if (vocabularyList[position].id != null){
-                val action = ShowVocabularyFragmentDirections.actionShowVocabularyFragmentToVocabularyDetailsFragment(vocabularyList[position].id!!.toInt())
+                val action = ShowVocabularyFragmentDirections.actionShowVocabularyFragmentToVocabularyDetailsFragment(vocabularyList[position].id!!)
                 Navigation.findNavController(holder.textViewItem).navigate(action)
             }
         }

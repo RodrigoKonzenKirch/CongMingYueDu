@@ -10,7 +10,7 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
                      private val chineseDictionaryDao: ChineseDictionaryDao, context: Context) {
 
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
-    val allVocabularyWithDictDefinition: LiveData<List<ChineseDictionary>> = getVocabWithDefinition()
+    //val allVocabularyWithDictDefinition: LiveData<List<ChineseDictionary>> = getVocabWithDefinition()
     val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()
     private val sharedPref: SharedPreference = SharedPreference(context)
     var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
@@ -38,36 +38,40 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
         return isOnDatabase
     }
 
-    private fun getVocabWithDefinition():MutableLiveData<List<ChineseDictionary>>{
-        val resultList = MutableLiveData<List<ChineseDictionary>>()
-        val allVocabularyTemp = allVocabulary.value
-        val tempListOfWords = mutableListOf<ChineseDictionary>()
-
-        if (!allVocabularyTemp.isNullOrEmpty()) {
-            allVocabularyTemp.forEach{
-                val wordWithDefinition = getWordFromChineseDictionary(it.vocabularyContent)
-
-                if (wordWithDefinition.wordSimplified.isBlank()){
-                    tempListOfWords.add(ChineseDictionary(0, "", it.vocabularyContent, "", ""))
-                } else {
-                    tempListOfWords.add(wordWithDefinition)
-                }
-            }
-            resultList.value = tempListOfWords
-        }
-        return resultList
-    }
+//    private fun getVocabWithDefinition():MutableLiveData<List<ChineseDictionary>>{
+//        val resultList = MutableLiveData<List<ChineseDictionary>>()
+//        val allVocabularyTemp = allVocabulary.value
+//        val tempListOfWords = mutableListOf<ChineseDictionary>()
+//
+//        if (!allVocabularyTemp.isNullOrEmpty()) {
+//            allVocabularyTemp.forEach{
+//                val wordWithDefinition = getWordFromChineseDictionary(it.vocabularyContent)
+//
+//                if (wordWithDefinition.wordSimplified.isBlank()){
+//                    tempListOfWords.add(ChineseDictionary(0, "", it.vocabularyContent, "", ""))
+//                } else {
+//                    tempListOfWords.add(wordWithDefinition)
+//                }
+//            }
+//            resultList.value = tempListOfWords
+//        }
+//        return resultList
+//    }
 
     fun setCurrentTextId(id:Int){
         sharedPref.save(sharedPref.PREF_NAME, id)
     }
 
-    fun getWordFromChineseDictionary(word: String): ChineseDictionary {
+    suspend fun getWordFromChineseDictionary(word: String): ChineseDictionary {
         return chineseDictionaryDao.getWord(word)
     }
 
     fun setVocabularyStarred(isStarred: Boolean, id: Long){
         vocabularyDao.setVocabularyStarred(isStarred, id)
+    }
+
+    suspend fun getVocabularyById(id: Long): Vocabulary {
+        return vocabularyDao.getVocabularyById(id)
     }
 
     fun setCurrentTextPage(page: Int, id: Int){

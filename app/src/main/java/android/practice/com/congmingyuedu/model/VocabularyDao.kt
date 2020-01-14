@@ -14,4 +14,7 @@ interface VocabularyDao {
 
     @Query("UPDATE vocabulary SET vocabulary_starred = :isStarred WHERE id = :id")
     fun setVocabularyStarred(isStarred: Boolean, id: Long)
+
+    @Query("SELECT * FROM vocabulary WHERE id = :id")
+    suspend fun getVocabularyById(id: Long): Vocabulary
 }
