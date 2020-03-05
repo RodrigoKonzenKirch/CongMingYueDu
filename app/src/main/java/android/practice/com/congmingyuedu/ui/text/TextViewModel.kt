@@ -26,7 +26,4 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
         currentText = repository.currentText
     }
 
-    fun setCurrentText(id: Int){
-        repository.setCurrentTextId(id)
-    }
 }

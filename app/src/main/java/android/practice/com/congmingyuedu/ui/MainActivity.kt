@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             menuItem.isChecked = true
             mDrawerLayout.closeDrawers()
 
-            //TODO: Implement click event on navigation drawer items
+            //TODO: Implement click event on navigation drawer delete
             when(menuItem.itemId){
                 R.id.nav_read_text -> nav_host_fragment.findNavController().navigate(R.id.textFragment)
                 R.id.nav_open_text -> nav_host_fragment.findNavController().navigate(R.id.openTextFragment)
