@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.ui.text.TextViewModel
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_open_text.*
 
 class OpenTextFragment : Fragment() {
 
-    private lateinit var textViewModel: TextViewModel
+    private lateinit var openTextViewModel: OpenTextViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +29,14 @@ class OpenTextFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+        openTextViewModel = ViewModelProviders.of(this).get(OpenTextViewModel::class.java)
         val recyclerView = recyclerviewText
-        val adapter = TextListAdapter(textViewModel)
+        val adapter = TextListAdapter(openTextViewModel)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
 
-        textViewModel.allTexts.observe(this, Observer { texts ->
+        openTextViewModel.allTexts.observe(this, Observer { texts ->
             texts?.let { adapter.setTexts(it) }
         })
 

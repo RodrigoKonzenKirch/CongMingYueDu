@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.ui.text
+package android.practice.com.congmingyuedu.ui.opentext
 
 import android.app.Application
 import android.practice.com.congmingyuedu.data.TextRepository
@@ -7,11 +7,11 @@ import android.practice.com.congmingyuedu.data.local.ChineseText
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 
-class TextViewModel(application: Application) : AndroidViewModel(application) {
+class OpenTextViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
 
-    val currentText: LiveData<ChineseText>
+    val allTexts: LiveData<List<ChineseText>>
 
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
@@ -23,10 +23,12 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
             dictionaryDao,
             application
         )
-        currentText = repository.currentText
+        allTexts = repository.allTexts
     }
 
     fun setCurrentText(id: Int){
         repository.setCurrentTextId(id)
     }
+
+
 }

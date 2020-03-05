@@ -2,7 +2,7 @@ package android.practice.com.congmingyuedu.adapters
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.ChineseText
-import android.practice.com.congmingyuedu.ui.text.TextViewModel
+import android.practice.com.congmingyuedu.ui.opentext.OpenTextViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.text_recyclerview_item.view.*
 
-class TextListAdapter internal constructor(val viewModel: TextViewModel): RecyclerView.Adapter<TextListAdapter.TextViewHolder>(){
+class TextListAdapter internal constructor(val viewModel: OpenTextViewModel): RecyclerView.Adapter<TextListAdapter.TextViewHolder>(){
 
     private var texts = emptyList<ChineseText>()
 
