@@ -51,11 +51,11 @@ class VocabularyViewModel(application: Application) : AndroidViewModel(applicati
         repository.setVocabularyStarred(isStarred, id)
     }
 
-    suspend fun getWordFromChineseDictionary(word: String): ChineseDictionary {
+    private suspend fun getWordFromChineseDictionary(word: String): ChineseDictionary {
         return repository.getWordFromChineseDictionary(word)
     }
 
-    suspend fun getVocabularyById(id: Long): Vocabulary {
+    private suspend fun getVocabularyById(id: Long): Vocabulary {
         return repository.getVocabularyById(id)
     }
 
