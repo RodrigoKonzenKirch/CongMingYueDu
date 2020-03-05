@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.ChineseText
-import android.practice.com.congmingyuedu.ui.text.TextViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
@@ -17,7 +16,7 @@ import android.practice.com.congmingyuedu.utils.hideKeyboard
 
 class ImportTextFragment : Fragment() {
 
-    private lateinit var textViewModel: TextViewModel
+    private lateinit var importTextViewModel: ImportTextViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +29,7 @@ class ImportTextFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        textViewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+        importTextViewModel = ViewModelProviders.of(this).get(ImportTextViewModel::class.java)
 
         // Only enable save button when title and content are not empty
         class MyTextWatcher: TextWatcher{
@@ -44,7 +43,7 @@ class ImportTextFragment : Fragment() {
         editTextContent.addTextChangedListener(MyTextWatcher())
 
         buttonSave.setOnClickListener {
-            textViewModel.insertText(
+            importTextViewModel.insertText(
                 ChineseText(
                     null,
                     editTextTitle.text.toString(),
