@@ -1,6 +1,7 @@
 package android.practice.com.congmingyuedu.ui.vocabularydetails
 
 import android.os.Bundle
+import android.practice.com.congmingyuedu.R
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,12 +26,12 @@ class VocabularyDetailsFragment : Fragment() {
         ).apply {
             this.lifecycleOwner = this@VocabularyDetailsFragment
             this.viewModel = vocabularyViewModel
+            vocabularyViewModel.setUpVocabularyDetailsById(args.vocabularyIdArg)
+            when (vocabularyViewModel.vocabularyDetails.value!!.isStared ){
+                true -> imageView.setImageResource(R.drawable.starred_true50x50)
+                false -> imageView.setImageResource(R.drawable.starred_false50x50)
+            }
         }.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        vocabularyViewModel.setUpVocabularyDetailsById(args.vocabularyIdArg)
-    }
 }

@@ -33,6 +33,7 @@ class VocabularyViewModel(application: Application) : AndroidViewModel(applicati
         allVocabulary = repository.allVocabulary
         vocabularyDetails = MutableLiveData(
             VocabularyDetails(
+                false,
                 "simp",
                 "trad",
                 "pin",
@@ -67,11 +68,13 @@ class VocabularyViewModel(application: Application) : AndroidViewModel(applicati
             word = getVocabularyById(id)
             vocabularyContentFromDictionary = getWordFromChineseDictionary(word.vocabularyContent)
 
-            if (vocabularyContentFromDictionary == null || vocabularyContentFromDictionary.wordSimplified.isNullOrEmpty()){
+            if (vocabularyContentFromDictionary.wordSimplified.isEmpty()){
 
+                vocabularyDetails.value?.isStared = word.vocabularyStarred
                 vocabularyDetails.value?.simplified = word.vocabularyContent
                 vocabularyDetails.value?.info = word.vocabularyExtraInfo
             }else {
+                vocabularyDetails.value?.isStared = word.vocabularyStarred
                 vocabularyDetails.value?.simplified = vocabularyContentFromDictionary.wordSimplified
                 vocabularyDetails.value?.traditional =
                     vocabularyContentFromDictionary.wordTraditional
