@@ -6,7 +6,7 @@
         <import type="androidx.fragment.app.Fragment"/>
         <variable
                 name="viewModel"
-                type="android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel" />
+                type="android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
