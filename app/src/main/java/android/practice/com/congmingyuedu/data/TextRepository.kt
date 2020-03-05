@@ -1,10 +1,9 @@
-package android.practice.com.congmingyuedu
+package android.practice.com.congmingyuedu.data
 
 import android.content.Context
-import android.practice.com.congmingyuedu.model.*
+import android.practice.com.congmingyuedu.data.local.*
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 
 class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao,
                      private val chineseDictionaryDao: ChineseDictionaryDao, context: Context) {
@@ -12,7 +11,8 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
     //val allVocabularyWithDictDefinition: LiveData<List<ChineseDictionary>> = getVocabWithDefinition()
     val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()
-    private val sharedPref: SharedPreference = SharedPreference(context)
+    private val sharedPref: SharedPreference =
+        SharedPreference(context)
     var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
 
     @WorkerThread

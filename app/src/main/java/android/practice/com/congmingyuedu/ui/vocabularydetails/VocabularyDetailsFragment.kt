@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.view
+package android.practice.com.congmingyuedu.ui.vocabularydetails
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.databinding.FragmentVocabularyDetailsBinding
-import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
+import android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsFragmentArgs
+import android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 

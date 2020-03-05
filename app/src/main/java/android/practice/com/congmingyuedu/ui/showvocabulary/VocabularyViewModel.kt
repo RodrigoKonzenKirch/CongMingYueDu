@@ -1,11 +1,11 @@
-package android.practice.com.congmingyuedu.viewmodel
+package android.practice.com.congmingyuedu.ui.showvocabulary
 
 import android.app.Application
-import android.practice.com.congmingyuedu.TextRepository
-import android.practice.com.congmingyuedu.model.AppDatabase
-import android.practice.com.congmingyuedu.model.ChineseDictionary
-import android.practice.com.congmingyuedu.model.Vocabulary
-import android.practice.com.congmingyuedu.model.VocabularyDetails
+import android.practice.com.congmingyuedu.data.TextRepository
+import android.practice.com.congmingyuedu.data.local.AppDatabase
+import android.practice.com.congmingyuedu.data.local.ChineseDictionary
+import android.practice.com.congmingyuedu.data.local.Vocabulary
+import android.practice.com.congmingyuedu.data.local.VocabularyDetails
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -24,9 +24,23 @@ class VocabularyViewModel(application: Application) : AndroidViewModel(applicati
         val textDao = AppDatabase.getInstance(application)!!.textDao()
         val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
         val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
-        repository = TextRepository(textDao, vocabularyDao, dictionaryDao, application)
+        repository = TextRepository(
+            textDao,
+            vocabularyDao,
+            dictionaryDao,
+            application
+        )
         allVocabulary = repository.allVocabulary
-        vocabularyDetails = MutableLiveData(VocabularyDetails("simp","trad","pin","tran","info","ex"))
+        vocabularyDetails = MutableLiveData(
+            VocabularyDetails(
+                "simp",
+                "trad",
+                "pin",
+                "tran",
+                "info",
+                "ex"
+            )
+        )
     }
 
     fun insertVocabulary(vocabulary: Vocabulary) = viewModelScope.launch(Dispatchers.IO) {

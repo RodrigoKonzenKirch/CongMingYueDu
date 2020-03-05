@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.view
+package android.practice.com.congmingyuedu.ui.addvocabulary
 
 
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.model.Vocabulary
+import android.practice.com.congmingyuedu.data.local.Vocabulary
 import android.practice.com.congmingyuedu.utils.hideKeyboard
-import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
+import android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
@@ -48,7 +48,14 @@ class AddVocabularyFragment : Fragment() {
         })
 
         buttonAddVocabulary.setOnClickListener {
-            vocabularyViewModel.insertVocabulary(Vocabulary(null, editTextAddVocabulary.text.toString(), false, editTextExtraInfo.text.toString()))
+            vocabularyViewModel.insertVocabulary(
+                Vocabulary(
+                    null,
+                    editTextAddVocabulary.text.toString(),
+                    false,
+                    editTextExtraInfo.text.toString()
+                )
+            )
             editTextAddVocabulary.text.clear()
             hideKeyboard()
             Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()

@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.model
+package android.practice.com.congmingyuedu.data.local
 
 import android.content.Context
 import android.content.SharedPreferences

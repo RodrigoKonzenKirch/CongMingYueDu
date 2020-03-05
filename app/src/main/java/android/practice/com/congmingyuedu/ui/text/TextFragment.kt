@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.view
+package android.practice.com.congmingyuedu.ui.text
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.databinding.TextFragmentBinding
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*

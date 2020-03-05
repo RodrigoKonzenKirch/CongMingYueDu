@@ -4,11 +4,11 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
             app:startDestination="@id/textFragment">
 
-    <fragment android:id="@+id/glossaryFragment" android:name="android.practice.com.congmingyuedu.view.GlossaryFragment"
+    <fragment android:id="@+id/glossaryFragment" android:name="android.practice.com.congmingyuedu.ui.glossary.GlossaryFragment"
               android:label="Glossary" tools:layout="@layout/glossary_fragment">
         <action android:id="@+id/action_glossaryFragment_to_textFragment" app:destination="@id/textFragment"/>
     </fragment>
-    <fragment android:id="@+id/textFragment" android:name="android.practice.com.congmingyuedu.view.TextFragment"
+    <fragment android:id="@+id/textFragment" android:name="android.practice.com.congmingyuedu.ui.text.TextFragment"
               android:label="Text" tools:layout="@layout/text_fragment">
         <action android:id="@+id/action_textFragment_to_glossaryFragment" app:destination="@id/glossaryFragment"
                 app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
@@ -20,13 +20,13 @@
                 app:destination="@id/showVocabularyFragment"/>
         <action android:id="@+id/action_textFragment_to_openTextFragment" app:destination="@id/openTextFragment"/>
     </fragment>
-    <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.view.ImportFragment"
-              android:label="Add/Import" tools:layout="@layout/fragment_import"/>
+    <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.ui.importtext.ImportTextFragment"
+              android:label="Add/Import" tools:layout="@layout/fragment_import_text"/>
     <fragment android:id="@+id/addVocabularyFragment"
-              android:name="android.practice.com.congmingyuedu.view.AddVocabularyFragment"
+              android:name="android.practice.com.congmingyuedu.ui.addvocabulary.AddVocabularyFragment"
               android:label="Add vocabulary" tools:layout="@layout/fragment_add_vocabulary"/>
     <fragment android:id="@+id/showVocabularyFragment"
-              android:name="android.practice.com.congmingyuedu.view.ShowVocabularyFragment"
+              android:name="android.practice.com.congmingyuedu.ui.showvocabulary.ShowVocabularyFragment"
               android:label="Vocabulary" tools:layout="@layout/fragment_show_vocabulary">
         <action
                 android:id="@+id/action_showVocabularyFragment_to_vocabularyDetailsFragment"
@@ -34,12 +34,12 @@
     </fragment>
     <fragment
             android:id="@+id/openTextFragment"
-            android:name="android.practice.com.congmingyuedu.view.OpenTextFragment"
+            android:name="android.practice.com.congmingyuedu.ui.opentext.OpenTextFragment"
             android:label="Open text"
             tools:layout="@layout/fragment_open_text" />
     <fragment
             android:id="@+id/vocabularyDetailsFragment"
-            android:name="android.practice.com.congmingyuedu.view.VocabularyDetailsFragment"
+            android:name="android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsFragment"
             android:label="Details"
             tools:layout="@layout/fragment_vocabulary_details">
         <argument

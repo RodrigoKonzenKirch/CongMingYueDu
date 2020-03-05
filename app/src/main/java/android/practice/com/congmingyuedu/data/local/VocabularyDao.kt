@@ -1,5 +1,6 @@
-package android.practice.com.congmingyuedu.model
+package android.practice.com.congmingyuedu.data.local
 
+import android.practice.com.congmingyuedu.data.local.Vocabulary
 import androidx.lifecycle.LiveData
 import androidx.room.*
 

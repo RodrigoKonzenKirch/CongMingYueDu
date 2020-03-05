@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.model
+package android.practice.com.congmingyuedu.data.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -3,7 +3,7 @@ package android.practice.com.congmingyuedu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.practice.com.congmingyuedu.view.MainActivity
+import android.practice.com.congmingyuedu.ui.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

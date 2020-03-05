@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.viewmodel
+package android.practice.com.congmingyuedu.ui.glossary
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

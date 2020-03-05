@@ -7,12 +7,12 @@
         <import type="androidx.fragment.app.Fragment"/>
         <variable
                 name="viewModel"
-                type="android.practice.com.congmingyuedu.viewmodel.TextViewModel" />
+                type="android.practice.com.congmingyuedu.ui.text.TextViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            tools:context=".view.TextFragment"
+            tools:context=".ui.text.TextFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/constraintLayoutTextFragment">

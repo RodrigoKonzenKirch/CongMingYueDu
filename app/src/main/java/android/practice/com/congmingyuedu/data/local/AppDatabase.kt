@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.model
+package android.practice.com.congmingyuedu.data.local
 
 import androidx.room.Database
 import androidx.room.Room
@@ -24,7 +24,8 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE : AppDatabase? = null
 
         fun getInstance(context: Context) : AppDatabase? {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null){
                 return tempInstance
             }
@@ -38,7 +39,9 @@ abstract class AppDatabase : RoomDatabase() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
                         GlobalScope.launch(Dispatchers.IO) {
-                            val chineseDictionaryDao = getInstance(context)!!.chineseDictionaryDao()
+                            val chineseDictionaryDao = getInstance(
+                                context
+                            )!!.chineseDictionaryDao()
                             if (chineseDictionaryDao.getCountDictionary() <= 0) {
 
                                 val listOfWordsFromFile = context.assets.open("cedict_ts.u8").bufferedReader().readLines()
@@ -65,7 +68,15 @@ abstract class AppDatabase : RoomDatabase() {
                                         wordTranslation = tempString.substring(tempString.indexOf("/")+1)
                                         wordTranslation = wordTranslation.removeSuffix("/")
 
-                                        listOfWordsFormattedForDB.add(ChineseDictionary(null, wordTraditional, wordSimplified, wordPinyin, wordTranslation))
+                                        listOfWordsFormattedForDB.add(
+                                            ChineseDictionary(
+                                                null,
+                                                wordTraditional,
+                                                wordSimplified,
+                                                wordPinyin,
+                                                wordTranslation
+                                            )
+                                        )
                                     }
                                 }
                                 chineseDictionaryDao.insertAll(listOfWordsFormattedForDB.toList())

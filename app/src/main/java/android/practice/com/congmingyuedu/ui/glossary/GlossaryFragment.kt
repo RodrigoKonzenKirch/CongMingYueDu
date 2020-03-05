@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.view
+package android.practice.com.congmingyuedu.ui.glossary
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,19 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
-import androidx.lifecycle.Observer
+import android.practice.com.congmingyuedu.ui.text.TextViewModel
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.glossary_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class GlossaryFragment : Fragment() {
 
     companion object {
-        fun newInstance() = GlossaryFragment()
+        fun newInstance() =
+            GlossaryFragment()
     }
 
     private lateinit var viewModel: TextViewModel

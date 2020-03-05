@@ -1,22 +1,21 @@
-package android.practice.com.congmingyuedu.view
+package android.practice.com.congmingyuedu.ui.importtext
 
-import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.model.ChineseText
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.data.local.ChineseText
+import android.practice.com.congmingyuedu.ui.text.TextViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_import.*
+import kotlinx.android.synthetic.main.fragment_import_text.*
 import android.practice.com.congmingyuedu.utils.hideKeyboard
 
-class ImportFragment : Fragment() {
+class ImportTextFragment : Fragment() {
 
     private lateinit var textViewModel: TextViewModel
 
@@ -25,7 +24,7 @@ class ImportFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_import, container, false)
+        return inflater.inflate(R.layout.fragment_import_text, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -45,7 +44,14 @@ class ImportFragment : Fragment() {
         editTextContent.addTextChangedListener(MyTextWatcher())
 
         buttonSave.setOnClickListener {
-            textViewModel.insertText(ChineseText(null, editTextTitle.text.toString(), editTextContent.text.toString(),0))
+            textViewModel.insertText(
+                ChineseText(
+                    null,
+                    editTextTitle.text.toString(),
+                    editTextContent.text.toString(),
+                    0
+                )
+            )
             editTextTitle.text.clear()
             editTextContent.text.clear()
             hideKeyboard()

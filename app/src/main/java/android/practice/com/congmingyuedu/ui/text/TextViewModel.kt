@@ -1,11 +1,9 @@
-package android.practice.com.congmingyuedu.viewmodel
+package android.practice.com.congmingyuedu.ui.text
 
 import android.app.Application
-import android.practice.com.congmingyuedu.TextRepository
-import android.practice.com.congmingyuedu.model.AppDatabase
-import android.practice.com.congmingyuedu.model.ChineseDictionary
-import android.practice.com.congmingyuedu.model.ChineseText
-import android.practice.com.congmingyuedu.model.Vocabulary
+import android.practice.com.congmingyuedu.data.TextRepository
+import android.practice.com.congmingyuedu.data.local.AppDatabase
+import android.practice.com.congmingyuedu.data.local.ChineseText
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -23,7 +21,12 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
         val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
         val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
-        repository = TextRepository(textDao, vocabularyDao, dictionaryDao, application)
+        repository = TextRepository(
+            textDao,
+            vocabularyDao,
+            dictionaryDao,
+            application
+        )
         allTexts = repository.allTexts
         currentText = repository.currentText
     }

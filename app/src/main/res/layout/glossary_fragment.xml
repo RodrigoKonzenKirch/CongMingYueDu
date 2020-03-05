@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.GlossaryFragment" android:id="@+id/frameLayout2">
+        tools:context=".ui.glossary.GlossaryFragment" android:id="@+id/frameLayout2">
 
     <TextView
             android:id="@+id/textViewGlossaryFragment"

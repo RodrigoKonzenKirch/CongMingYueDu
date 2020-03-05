@@ -1,8 +1,8 @@
 package android.practice.com.congmingyuedu.adapters
 
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.model.ChineseText
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
+import android.practice.com.congmingyuedu.data.local.ChineseText
+import android.practice.com.congmingyuedu.ui.text.TextViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

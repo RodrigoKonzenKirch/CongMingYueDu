@@ -1,10 +1,9 @@
 package android.practice.com.congmingyuedu.adapters
 
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.model.Vocabulary
-import android.practice.com.congmingyuedu.view.ShowVocabularyFragmentDirections
-import android.practice.com.congmingyuedu.viewmodel.TextViewModel
-import android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel
+import android.practice.com.congmingyuedu.data.local.Vocabulary
+import android.practice.com.congmingyuedu.ui.showvocabulary.ShowVocabularyFragmentDirections
+import android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

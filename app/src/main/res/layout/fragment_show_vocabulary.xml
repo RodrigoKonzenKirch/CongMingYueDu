@@ -3,7 +3,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".view.ShowVocabularyFragment"
+             tools:context=".ui.showvocabulary.ShowVocabularyFragment"
              android:id="@+id/show_vocabulary_layout">
 
     <androidx.recyclerview.widget.RecyclerView

@@ -6,14 +6,14 @@
         <import type="androidx.fragment.app.Fragment"/>
         <variable
                 name="viewModel"
-                type="android.practice.com.congmingyuedu.viewmodel.VocabularyViewModel" />
+                type="android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.VocabularyDetailsFragment" >
+            tools:context=".ui.vocabularydetails.VocabularyDetailsFragment" >
 
         <ImageView
                 android:id="@+id/imageView"
