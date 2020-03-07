@@ -49,6 +49,11 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
         return repository.getVocabularyById(id)
     }
 
+    // get current star status from DB and set the opposite
+    fun invertStarStatusById(id: Long) = viewModelScope.launch(Dispatchers.IO) {
+        repository.setVocabularyStarred(!repository.getVocabularyById(id).vocabularyStarred, id)
+    }
+
     fun setUpVocabularyDetailsById(id: Long) {
         var vocabularyContentFromDictionary: ChineseDictionary
         var word: Vocabulary
@@ -57,7 +62,7 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
             word = getVocabularyById(id)
             vocabularyContentFromDictionary = getWordFromChineseDictionary(word.vocabularyContent)
 
-            if (vocabularyContentFromDictionary.wordSimplified.isEmpty()){
+            if (vocabularyContentFromDictionary == null || vocabularyContentFromDictionary.wordSimplified.isNullOrEmpty()){
 
                 vocabularyDetails.value?.isStared = word.vocabularyStarred
                 vocabularyDetails.value?.simplified = word.vocabularyContent
@@ -78,4 +83,13 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
+    fun setVocabularyStarred(isStarred: Boolean, id: Long) = viewModelScope.launch(Dispatchers.IO) {
+        repository.setVocabularyStarred(isStarred, id)
+    }
+
+    fun deleteVocabularyById(id: Long){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteVocabularyById(id)
+        }
+    }
 }

@@ -1,6 +1,5 @@
 package android.practice.com.congmingyuedu.data.local
 
-import android.practice.com.congmingyuedu.data.local.Vocabulary
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
@@ -18,4 +17,7 @@ interface VocabularyDao {
 
     @Query("SELECT * FROM vocabulary WHERE id = :id")
     suspend fun getVocabularyById(id: Long): Vocabulary
+
+    @Query("DELETE FROM vocabulary WHERE id = :id")
+    suspend fun deleteVocabularyById(id: Long)
 }

@@ -45,5 +45,11 @@
         <argument
                 android:name="vocabularyIdArg"
                 app:argType="long" />
+        <action
+                android:id="@+id/action_vocabularyDetailsFragment_to_showVocabularyFragment"
+                app:destination="@id/showVocabularyFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/vocabularyDetailsFragment"
+                app:popUpToInclusive="true" />
     </fragment>
 </navigation>
