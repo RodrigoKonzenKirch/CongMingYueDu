@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface ChineseTextDao {
 
-    @Query("SELECT * FROM texts")
+    @Query("SELECT * FROM texts ORDER BY text_title")
     fun getAll(): LiveData<List<ChineseText>>
 
     @Query("SELECT * FROM texts WHERE id = :id LIMIT 1")
