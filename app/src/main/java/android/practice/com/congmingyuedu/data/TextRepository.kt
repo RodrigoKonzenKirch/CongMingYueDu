@@ -21,21 +21,21 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
     }
 
     fun insertVocabulary(vocabulary: Vocabulary){
-        if (!vocabularyIsOnDatabase(vocabulary)){
+        if (!vocabularyAlreadyExist(vocabulary)){
             vocabularyDao.insert(vocabulary)
         }
     }
 
-    private fun vocabularyIsOnDatabase(vocabulary: Vocabulary):Boolean{
-        var isOnDatabase = false
+    private fun vocabularyAlreadyExist(vocabulary: Vocabulary):Boolean{
+        var alreadyExist = false
         val allVocabularyTemp = allVocabulary.value
         if (!allVocabularyTemp.isNullOrEmpty()) {
             allVocabularyTemp.forEach {
                 if (vocabulary.vocabularyContent == it.vocabularyContent)
-                    isOnDatabase=true
+                    alreadyExist=true
             }
         }
-        return isOnDatabase
+        return alreadyExist
     }
 
 //    private fun getVocabWithDefinition():MutableLiveData<List<ChineseDictionary>>{
