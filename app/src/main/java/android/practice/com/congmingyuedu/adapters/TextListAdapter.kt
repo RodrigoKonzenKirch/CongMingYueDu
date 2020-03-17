@@ -37,8 +37,10 @@ class TextListAdapter internal constructor(val viewModel: OpenTextViewModel): Re
 
         holder.textItemViewTitle.text = current.textTitle
         holder.textItemViewContent.text = formattedContent
+        val id: Long? = current.id
         holder.itemView.setOnClickListener{
-            viewModel.setCurrentText(position+1)
+            if (id != null)
+                viewModel.setCurrentText(id.toInt())
             holder.itemView.findNavController().navigate(R.id.textFragment)
         }
     }

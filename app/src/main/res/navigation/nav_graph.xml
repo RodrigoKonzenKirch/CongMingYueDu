@@ -37,6 +37,10 @@
                 android:id="@+id/action_textFragment_to_openTextFragment"
                 app:destination="@id/openTextFragment"
                 app:launchSingleTop="true" />
+        <action
+                android:id="@+id/action_textFragment_to_deleteTextFragment"
+                app:destination="@id/deleteTextFragment"
+                app:launchSingleTop="true" />
     </fragment>
     <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.ui.importtext.ImportTextFragment"
               android:label="Add/Import" tools:layout="@layout/fragment_import_text"/>
@@ -71,4 +75,9 @@
                 app:popUpTo="@id/vocabularyDetailsFragment"
                 app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+            android:id="@+id/deleteTextFragment"
+            android:name="android.practice.com.congmingyuedu.ui.deletetext.DeleteTextFragment"
+            android:label="Delete text"
+            tools:layout="@layout/fragment_delete_text" />
 </navigation>

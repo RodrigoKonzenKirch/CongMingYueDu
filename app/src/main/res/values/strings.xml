@@ -29,4 +29,6 @@
     <string name="main_drawer_view_text">Text</string>
     <string name="main_drawer_view_vocabulary">Vocabulary</string>
     <string name="alert_dialog_delete_confirmation">Are you sure you want to delete?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

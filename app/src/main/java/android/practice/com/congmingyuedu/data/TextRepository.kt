@@ -78,6 +78,11 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
         vocabularyDao.deleteVocabularyById(id)
     }
 
+    suspend fun deleteTextById(id: Long){
+        chineseTextDao.deleteTextById(id)
+
+    }
+
     fun setCurrentTextPage(page: Int, id: Int){
         chineseTextDao.setPageById(page, id)
     }

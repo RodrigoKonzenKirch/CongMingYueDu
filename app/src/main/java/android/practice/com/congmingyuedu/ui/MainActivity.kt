@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_read_text -> nav_host_fragment.findNavController().navigate(R.id.textFragment)
                 R.id.nav_open_text -> nav_host_fragment.findNavController().navigate(R.id.openTextFragment)
                 R.id.nav_import_text -> nav_host_fragment.findNavController().navigate(R.id.importFragment)
-                R.id.nav_delete_text -> Toast.makeText(this, "delete not implemented yet", Toast.LENGTH_LONG).show()
+                R.id.nav_delete_text -> nav_host_fragment.findNavController().navigate(R.id.deleteTextFragment)
                 R.id.nav_show_vocabulary -> nav_host_fragment.findNavController().navigate(R.id.showVocabularyFragment)
                 else -> Toast.makeText(this, "ELSE", Toast.LENGTH_LONG).show()
             }
