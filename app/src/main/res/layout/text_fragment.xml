@@ -3,13 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <import type="androidx.fragment.app.Fragment"/>
-        <variable
-                name="viewModel"
-                type="android.practice.com.congmingyuedu.ui.text.TextViewModel" />
 
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             tools:context=".ui.text.TextFragment"
@@ -19,7 +13,6 @@
 
         <TextView
                 android:id="@+id/textViewTextFragment"
-                android:text="@{viewModel.currentText.textContent}"
                 android:textIsSelectable="true"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
