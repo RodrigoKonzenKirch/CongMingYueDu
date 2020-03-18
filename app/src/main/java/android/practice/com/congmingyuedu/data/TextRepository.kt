@@ -9,7 +9,6 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
                      private val chineseDictionaryDao: ChineseDictionaryDao, context: Context) {
 
     val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
-    //val allVocabularyWithDictDefinition: LiveData<List<ChineseDictionary>> = getVocabWithDefinition()
     val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()
     private val sharedPref: SharedPreference =
         SharedPreference(context)
@@ -38,26 +37,6 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
         return alreadyExist
     }
 
-//    private fun getVocabWithDefinition():MutableLiveData<List<ChineseDictionary>>{
-//        val resultList = MutableLiveData<List<ChineseDictionary>>()
-//        val allVocabularyTemp = allVocabulary.value
-//        val tempListOfWords = mutableListOf<ChineseDictionary>()
-//
-//        if (!allVocabularyTemp.isNullOrEmpty()) {
-//            allVocabularyTemp.forEach{
-//                val wordWithDefinition = getWordFromChineseDictionary(it.vocabularyContent)
-//
-//                if (wordWithDefinition.wordSimplified.isBlank()){
-//                    tempListOfWords.add(ChineseDictionary(0, "", it.vocabularyContent, "", ""))
-//                } else {
-//                    tempListOfWords.add(wordWithDefinition)
-//                }
-//            }
-//            resultList.value = tempListOfWords
-//        }
-//        return resultList
-//    }
-
     fun setCurrentTextId(id:Int){
         sharedPref.save(sharedPref.PREF_NAME, id)
     }
@@ -81,6 +60,10 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
     suspend fun deleteTextById(id: Long){
         chineseTextDao.deleteTextById(id)
 
+    }
+
+    fun getCurrentTextAsString(): LiveData<String>{
+        return chineseTextDao.getTextContentById(sharedPref.getValueInt(sharedPref.PREF_NAME).toLong())
     }
 
     fun setCurrentTextPage(page: Int, id: Int){

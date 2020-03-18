@@ -1,6 +1,5 @@
 package android.practice.com.congmingyuedu.data.local
 
-import android.practice.com.congmingyuedu.data.local.ChineseText
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
@@ -14,6 +13,9 @@ interface ChineseTextDao {
 
     @Query("SELECT * FROM texts WHERE id = :id LIMIT 1")
     fun getTextById(id: Int): LiveData<ChineseText>
+
+    @Query("SELECT text_content FROM texts WHERE id = :id")
+    fun getTextContentById(id: Long): LiveData<String>
 
     @Insert
     fun insert(chineseText: ChineseText)

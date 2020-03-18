@@ -7,19 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.ui.text.TextViewModel
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.glossary_fragment.*
 
 class GlossaryFragment : Fragment() {
 
-    companion object {
-        fun newInstance() =
-            GlossaryFragment()
-    }
-
-    private lateinit var viewModel: TextViewModel
+    private lateinit var viewModel: GlossaryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +25,8 @@ class GlossaryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TextViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(GlossaryViewModel::class.java)
+        var currentText = ""
 
         buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
@@ -43,6 +39,22 @@ class GlossaryFragment : Fragment() {
         buttonGlossaryFragmentFlipToTextRight.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.textFragment)
         }
+
+        viewModel.mCurrentText.observe(this, Observer { mText ->
+            currentText = mText
+        })
+
+        viewModel.vocabularyList.observe(this, Observer { vocabList ->
+            var formattedString = ""
+                vocabList.forEach {
+                        when{
+                            currentText.contains(it.vocabularyContent) ->
+                                formattedString = "$formattedString -->  ${it.vocabularyContent}\n"
+                        }
+                }
+
+            textViewGlossaryFragment.text = formattedString
+        })
 
     }
 }
