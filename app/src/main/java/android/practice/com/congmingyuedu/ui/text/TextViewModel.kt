@@ -4,6 +4,7 @@ import android.app.Application
 import android.practice.com.congmingyuedu.data.TextRepository
 import android.practice.com.congmingyuedu.data.local.AppDatabase
 import android.practice.com.congmingyuedu.data.local.ChineseText
+import android.practice.com.congmingyuedu.data.local.Vocabulary
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 
@@ -12,6 +13,7 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: TextRepository
 
     val currentText: LiveData<ChineseText>
+    var vocabularyList: LiveData<List<Vocabulary>>
 
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
@@ -24,6 +26,7 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
             application
         )
         currentText = repository.currentText
+        vocabularyList = repository.allVocabulary
     }
 
 }
