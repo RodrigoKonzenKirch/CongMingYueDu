@@ -31,4 +31,6 @@
     <string name="alert_dialog_delete_confirmation">Are you sure you want to delete?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="font_size">Font size</string>
+    <string name="highlight_settings_summary">Choose the highlight color for unknown words</string>
 </resources>

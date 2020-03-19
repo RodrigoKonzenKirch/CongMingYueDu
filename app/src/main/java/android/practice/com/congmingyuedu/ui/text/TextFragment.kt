@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
-import android.practice.com.congmingyuedu.ui.MainActivity
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
@@ -22,6 +21,10 @@ import kotlinx.android.synthetic.main.text_fragment.*
 class TextFragment : Fragment() {
 
     private val textViewModel: TextViewModel by viewModels()
+    companion object{
+        const val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
+        const val KEY_PREF_HIGHLIGHT_COLOR = "COLOR_OF_HIGHLIGHTING"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +36,19 @@ class TextFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val highlightColorDexCode: String
         val sharedPref: SharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
-        val textPref: Int = sharedPref.getInt(MainActivity.KEY_PREF_TEXT_FONT_SIZE, 16)
+        val textPref: Int = sharedPref.getInt(KEY_PREF_TEXT_FONT_SIZE, 16)
         textViewTextFragment.textSize = textPref.toFloat()
+
+        val highlightColorPref: String? = sharedPref.getString(KEY_PREF_HIGHLIGHT_COLOR, "Yellow")
+        highlightColorDexCode = when(highlightColorPref){
+            "Yellow" -> "#FFFF55"
+            "Green" -> "#90EE90"
+            "Blue" -> "#99CCFF"
+            "Grey" -> "#D3D3D3"
+            else -> "#FFFF55"
+        }
 
         var mCurrentTextAsString = ""
         var mVocabularyList = listOf<Vocabulary>()
@@ -43,14 +56,14 @@ class TextFragment : Fragment() {
         textViewModel.currentText.observe(this, Observer {
             mCurrentTextAsString = it.textContent
             if (mVocabularyList.isNotEmpty()){
-                textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList)
+                textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
             }
         })
 
         textViewModel.vocabularyList.observe(this, Observer {
             mVocabularyList = it
             if (mCurrentTextAsString.isNotEmpty()){
-                textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList)
+                textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
             }
         })
 
@@ -68,7 +81,7 @@ class TextFragment : Fragment() {
         }
     }
 
-    private fun highlightText(textToBeHighlighted: String, vocabularyList: List<Vocabulary>): SpannableString{
+    private fun highlightText(textToBeHighlighted: String, vocabularyList: List<Vocabulary>, highlightColor: String): SpannableString{
         // Get indexes of words in the string containing the text to be highlighted
         val indexesAndWordSizes = mutableListOf<Pair<Int, Int>>()
 
@@ -85,7 +98,7 @@ class TextFragment : Fragment() {
         // Highlight words using list of indexes of each word
         val result = SpannableString(textToBeHighlighted)
         indexesAndWordSizes.forEach{
-            result.setSpan(BackgroundColorSpan(Color.parseColor("#FFFF55")), it.first, it.first+it.second,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE )
+            result.setSpan(BackgroundColorSpan(Color.parseColor(highlightColor)), it.first, it.first+it.second,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE )
         }
         return result
     }

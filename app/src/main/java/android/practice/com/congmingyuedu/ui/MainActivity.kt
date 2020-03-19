@@ -16,9 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mDrawerLayout: DrawerLayout
-companion object{
-    const val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
-}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
