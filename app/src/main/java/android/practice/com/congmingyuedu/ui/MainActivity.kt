@@ -1,9 +1,7 @@
 package android.practice.com.congmingyuedu.ui
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.ui.settings.SettingsFragment
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mDrawerLayout: DrawerLayout
 companion object{
-    val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
+    const val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
 }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
