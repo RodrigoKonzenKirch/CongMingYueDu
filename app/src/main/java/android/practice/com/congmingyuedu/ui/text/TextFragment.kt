@@ -1,5 +1,6 @@
 package android.practice.com.congmingyuedu.ui.text
 
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
+import android.practice.com.congmingyuedu.ui.MainActivity
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
@@ -30,6 +32,10 @@ class TextFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        val sharedPref: SharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+        val textPref: Int = sharedPref.getInt(MainActivity.KEY_PREF_TEXT_FONT_SIZE, 16)
+        textViewTextFragment.textSize = textPref.toFloat()
 
         var mCurrentTextAsString = ""
         var mVocabularyList = listOf<Vocabulary>()

@@ -1,7 +1,9 @@
 package android.practice.com.congmingyuedu.ui
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
+import android.practice.com.congmingyuedu.ui.settings.SettingsFragment
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +18,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mDrawerLayout: DrawerLayout
-
+companion object{
+    val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
+}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        androidx.preference.PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
 
         setSupportActionBar(toolbar)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -41,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_import_text -> nav_host_fragment.findNavController().navigate(R.id.importFragment)
                 R.id.nav_delete_text -> nav_host_fragment.findNavController().navigate(R.id.deleteTextFragment)
                 R.id.nav_show_vocabulary -> nav_host_fragment.findNavController().navigate(R.id.showVocabularyFragment)
+                R.id.nav_settings -> nav_host_fragment.findNavController().navigate(R.id.settingsFragment)
                 else -> Toast.makeText(this, "ELSE", Toast.LENGTH_LONG).show()
             }
 

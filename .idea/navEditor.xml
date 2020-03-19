@@ -77,6 +77,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="settingsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="737" />
+                            <option name="y" value="-724" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="showVocabularyFragment">
                     <value>
                       <LayoutPositions>
@@ -110,6 +122,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_textFragment_to_addVocabularyFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_textFragment_to_deleteTextFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

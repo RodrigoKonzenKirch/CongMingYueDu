@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SeekBarPreference
+            android:key="MAIN_TEXT_FONT_SIZE"
+            android:title="Font size"
+            android:defaultValue="16"
+            app:min="10"
+            android:max="20"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+            app:updatesContinuously="true"
+            />
+</PreferenceScreen>

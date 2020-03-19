@@ -47,5 +47,10 @@
                 </group>
             </menu>
         </item>
+        <item
+                android:id="@+id/nav_settings"
+                android:title="Settings">
+
+        </item>
     </group>
 </menu>

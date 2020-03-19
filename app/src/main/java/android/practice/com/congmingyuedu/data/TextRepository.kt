@@ -14,6 +14,13 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
         SharedPreference(context)
     var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
 
+//    val highlightColor = listOf<Pair<String, String>>(Pair("GREEN", "#90EE90"), Pair("BLUE", "99CCFF"), Pair("YELLW", "FFFF55"), Pair("GREY", "D3D3D3"))
+    var highlightColorsList = listOf(
+            HighlightColor(0,"YELLOW", "FFFF55"),
+            HighlightColor(1, "GREEN", "90EE90"),
+            HighlightColor(2, "BLUE", "99CCFF"),
+            HighlightColor(3, "GREY", "D3D3D3"))
+
     @WorkerThread
     fun insertText(chineseText: ChineseText){
         chineseTextDao.insert(chineseText)
