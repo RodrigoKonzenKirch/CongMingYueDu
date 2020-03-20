@@ -19,8 +19,9 @@
                 android:id="@+id/imageViewStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/star_toggle_button_description"
                 android:layout_margin="8dp"
-                android:src="@drawable/starred_false50x50"
+                android:src="@drawable/ic_starred_false50x50"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,6 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:contentDescription="@string/delete_button_description"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:src="@android:drawable/ic_delete"
                 app:layout_constraintEnd_toEndOf="parent"

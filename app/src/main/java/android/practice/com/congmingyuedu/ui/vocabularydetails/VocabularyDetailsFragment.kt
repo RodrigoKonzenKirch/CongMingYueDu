@@ -29,8 +29,8 @@ class VocabularyDetailsFragment : Fragment() {
             this.viewModel = vocabularyDetailsViewModel
             vocabularyDetailsViewModel.setUpVocabularyDetailsById(args.vocabularyIdArg)
             when (vocabularyDetailsViewModel.vocabularyDetails.value!!.isStared ){
-                true -> imageViewStar.setImageResource(R.drawable.starred_true50x50)
-                false -> imageViewStar.setImageResource(R.drawable.starred_false50x50)
+                true -> imageViewStar.setImageResource(R.drawable.ic_starred_true50x50)
+                false -> imageViewStar.setImageResource(R.drawable.ic_starred_false50x50)
             }
             imageButtonDelete.setOnClickListener{
                 showAlertDialog()

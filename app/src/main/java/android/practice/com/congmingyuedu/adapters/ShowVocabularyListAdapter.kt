@@ -31,9 +31,9 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: VocabularyVi
     override fun onBindViewHolder(holder: ShowVocabularyViewHolder, position: Int) {
 
         if (vocabularyList[position].vocabularyStarred)
-            holder.imageViewItem.setImageResource(R.drawable.starred_true50x50)
+            holder.imageViewItem.setImageResource(R.drawable.ic_starred_true50x50)
         else
-            holder.imageViewItem.setImageResource(R.drawable.starred_false50x50)
+            holder.imageViewItem.setImageResource(R.drawable.ic_starred_false50x50)
 
         holder.textViewItem.text = vocabularyList[position].vocabularyContent
         holder.imageViewItem.setOnClickListener{

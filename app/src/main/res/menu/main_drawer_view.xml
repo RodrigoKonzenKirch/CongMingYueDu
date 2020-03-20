@@ -13,23 +13,23 @@
 
                     <item
                             android:id="@+id/nav_read_text"
-                            android:icon="@drawable/icon_read_80"
+                            android:icon="@drawable/ic_read_80"
                             android:title="@string/menu_read"
                             />
 
                     <item
                             android:id="@+id/nav_open_text"
-                            android:icon="@drawable/icon_opened_folder_96"
+                            android:icon="@drawable/ic_opened_folder_96"
                             android:title="@string/menu_open" />
 
                     <item
                             android:id="@+id/nav_import_text"
-                            android:icon="@drawable/icon_import_96"
+                            android:icon="@drawable/ic_import_96"
                             android:title="@string/menu_import" />
 
                     <item
                             android:id="@+id/nav_delete_text"
-                            android:icon="@drawable/icon_delete_96"
+                            android:icon="@drawable/ic_delete_forever_black_24dp"
                             android:title="@string/menu_delete" />
 
                 </group>
@@ -41,7 +41,7 @@
                     android:checkableBehavior="single">
                     <item
                             android:id="@+id/nav_show_vocabulary"
-                            android:icon="@drawable/icon_vocabulary_96"
+                            android:icon="@drawable/ic_vocabulary_96"
                             android:title="@string/menu_vocabulary"/>
 
                 </group>
@@ -49,7 +49,8 @@
         </item>
         <item
                 android:id="@+id/nav_settings"
-                android:title="Settings">
+                android:title="@string/settings"
+                android:icon="@drawable/ic_settings_24px">
 
         </item>
     </group>
