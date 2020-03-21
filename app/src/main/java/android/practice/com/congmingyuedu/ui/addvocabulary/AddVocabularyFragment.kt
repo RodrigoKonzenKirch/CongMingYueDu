@@ -57,6 +57,7 @@ class AddVocabularyFragment : Fragment() {
                 )
             )
             editTextAddVocabulary.text.clear()
+            editTextExtraInfo.text.clear()
             hideKeyboard()
             Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()
         }

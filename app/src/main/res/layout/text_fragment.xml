@@ -3,8 +3,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
             tools:context=".ui.text.TextFragment"
             android:layout_width="match_parent"
@@ -19,11 +17,15 @@
                 android:textSize="16sp"
                 android:lineSpacingExtra="2dp"
                 android:scrollX="0dp"
+                android:background="@color/colorWhite"
+                android:elevation="4dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/buttonTextFragmentToAddVocabulary"
-                android:layout_margin="12dp" />
+                />
 
         <Button
                 android:id="@+id/buttonTextFragmentToAddVocabulary"
@@ -34,11 +36,8 @@
                 app:layout_constraintStart_toEndOf="@id/buttonTextFragmentFlipToGlossaryLeft"
                 app:layout_constraintEnd_toStartOf="@id/buttonTextFragmentFlipToGlossaryRight"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" />
+                android:layout_marginBottom="4dp"
+                android:layout_marginHorizontal="8dp" />
 
         <Button
                 android:id="@+id/buttonTextFragmentFlipToGlossaryLeft"
@@ -49,8 +48,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/buttonTextFragmentToAddVocabulary"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginStart="8dp" />
 
         <Button
@@ -62,8 +60,8 @@
                 app:layout_constraintStart_toEndOf="@id/buttonTextFragmentToAddVocabulary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp" />
+                />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

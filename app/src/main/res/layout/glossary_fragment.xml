@@ -11,9 +11,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textIsSelectable="true"
-            android:padding="16dp"
             android:textSize="24sp"
             android:scrollX="0dp"
+            android:background="@color/colorWhite"
+            android:elevation="4dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
             tools:chineseText="Glossary fragment!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,11 +32,8 @@
             app:layout_constraintStart_toEndOf="@id/buttonGlossaryFragmentFlipToTextLeft"
             app:layout_constraintEnd_toStartOf="@id/buttonGlossaryFragmentFlipToTextRight"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginBottom="4dp"
+            android:layout_marginHorizontal="8dp"/>
 
     <Button
             android:id="@+id/buttonGlossaryFragmentFlipToTextLeft"
@@ -44,8 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/buttonGlossaryFragmentToAddVocabulary"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginStart="8dp"
     />
 
@@ -58,9 +57,8 @@
             app:layout_constraintStart_toEndOf="@id/buttonGlossaryFragmentToAddVocabulary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

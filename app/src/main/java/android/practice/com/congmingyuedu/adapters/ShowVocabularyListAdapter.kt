@@ -40,6 +40,12 @@ class ShowVocabularyListAdapter internal constructor(val viewModel: VocabularyVi
             if (vocabularyList[position].id != null)
                 viewModel.setVocabularyStared(!vocabularyList[position].vocabularyStarred, vocabularyList[position].id!!)
         }
+        if (vocabularyList[position].vocabularyExtraInfo.isEmpty()){
+            holder.textViewItemExtraInfo.visibility = View.GONE
+        }else{
+            holder.textViewItemExtraInfo.visibility = View.VISIBLE
+            holder.textViewItemExtraInfo.text = vocabularyList[position].vocabularyExtraInfo
+        }
 
         holder.textViewItem.setOnClickListener {
             if (vocabularyList[position].id != null){
