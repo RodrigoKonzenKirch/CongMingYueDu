@@ -9,11 +9,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "android.practice.com.congmingyuedu"
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -45,8 +45,8 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.2.0-beta01"
-    def room_version = "2.2.3"
+    def nav_version = "2.3.0-alpha03"
+    def room_version = "2.2.4"
 
     implementation "androidx.room:room-ktx:$room_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -56,7 +56,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -67,9 +67,9 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
     androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
 
     implementation "androidx.preference:preference:1.1.0"
-    implementation "com.android.support:preference-v7:28.0.0"
+    implementation "com.android.support:preference-v7:29.0.0"
 
 }
