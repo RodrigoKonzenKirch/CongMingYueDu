@@ -30,7 +30,7 @@ class VocabularyDetailsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        vocabularyDetailsViewModel.vocabularyDetails.observe(this, Observer {
+        vocabularyDetailsViewModel.vocabularyDetails.observe(viewLifecycleOwner, Observer {
             vocabularyDetailsViewModel.setUpVocabularyDetailsById(args.vocabularyIdArg)
             when (vocabularyDetailsViewModel.vocabularyDetails.value!!.isStared ){
                 true -> imageViewStar.setImageResource(R.drawable.ic_starred_true50x50)

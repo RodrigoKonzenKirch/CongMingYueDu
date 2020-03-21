@@ -1,21 +1,20 @@
 package android.practice.com.congmingyuedu.ui.showvocabulary
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.practice.com.congmingyuedu.R
+import android.practice.com.congmingyuedu.adapters.ShowVocabularyListAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.adapters.ShowVocabularyListAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_show_vocabulary.*
 
 class ShowVocabularyFragment : Fragment() {
 
-    private lateinit var vocabularyViewModel: VocabularyViewModel
+    private val vocabularyViewModel: VocabularyViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,14 +27,12 @@ class ShowVocabularyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        vocabularyViewModel = ViewModelProviders.of(this).get(VocabularyViewModel::class.java)
-
         val recyclerView = recyclerviewShowVocabulary
         val adapter = ShowVocabularyListAdapter(vocabularyViewModel)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        vocabularyViewModel.allVocabulary.observe(this, Observer { vocabularyList ->
+        vocabularyViewModel.allVocabulary.observe(viewLifecycleOwner, Observer { vocabularyList ->
             vocabularyList?.let { adapter.setVocabularyList(it) }
         })
 

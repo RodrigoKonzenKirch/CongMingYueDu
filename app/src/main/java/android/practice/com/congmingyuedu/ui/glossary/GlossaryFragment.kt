@@ -1,12 +1,12 @@
 package android.practice.com.congmingyuedu.ui.glossary
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.glossary_fragment.*
 
 class GlossaryFragment : Fragment() {
 
-    private lateinit var viewModel: GlossaryViewModel
+    private val viewModel: GlossaryViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,6 @@ class GlossaryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(GlossaryViewModel::class.java)
         var currentText = ""
 
         buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
@@ -40,11 +39,11 @@ class GlossaryFragment : Fragment() {
             nav_host_fragment.findNavController().navigate(R.id.textFragment)
         }
 
-        viewModel.mCurrentText.observe(this, Observer { mText ->
+        viewModel.mCurrentText.observe(viewLifecycleOwner, Observer { mText ->
             currentText = mText
         })
 
-        viewModel.vocabularyList.observe(this, Observer { vocabList ->
+        viewModel.vocabularyList.observe(viewLifecycleOwner, Observer { vocabList ->
             var formattedString = ""
                 vocabList.forEach {
                         when{

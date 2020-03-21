@@ -9,14 +9,14 @@ import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.ChineseText
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_import_text.*
 import android.practice.com.congmingyuedu.utils.hideKeyboard
+import androidx.fragment.app.viewModels
 
 class ImportTextFragment : Fragment() {
 
-    private lateinit var importTextViewModel: ImportTextViewModel
+    private val importTextViewModel: ImportTextViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +28,6 @@ class ImportTextFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        importTextViewModel = ViewModelProviders.of(this).get(ImportTextViewModel::class.java)
 
         // Only enable save button when title and content are not empty
         class MyTextWatcher: TextWatcher{

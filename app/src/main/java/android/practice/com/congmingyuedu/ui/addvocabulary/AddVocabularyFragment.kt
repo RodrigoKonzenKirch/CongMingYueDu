@@ -6,20 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
 import android.practice.com.congmingyuedu.utils.hideKeyboard
 import android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
 
 class AddVocabularyFragment : Fragment() {
 
-    private lateinit var vocabularyViewModel: VocabularyViewModel
+    private val vocabularyViewModel: VocabularyViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,12 +26,6 @@ class AddVocabularyFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_vocabulary, container, false)
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        vocabularyViewModel = ViewModelProviders.of(this).get(VocabularyViewModel::class.java)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

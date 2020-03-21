@@ -53,14 +53,14 @@ class TextFragment : Fragment() {
         var mCurrentTextAsString = ""
         var mVocabularyList = listOf<Vocabulary>()
 
-        textViewModel.currentText.observe(this, Observer {
+        textViewModel.currentText.observe(viewLifecycleOwner, Observer {
             mCurrentTextAsString = it.textContent
             if (mVocabularyList.isNotEmpty()){
                 textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
             }
         })
 
-        textViewModel.vocabularyList.observe(this, Observer {
+        textViewModel.vocabularyList.observe(viewLifecycleOwner, Observer {
             mVocabularyList = it
             if (mCurrentTextAsString.isNotEmpty()){
                 textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
