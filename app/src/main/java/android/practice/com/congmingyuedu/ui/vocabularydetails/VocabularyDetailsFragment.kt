@@ -7,11 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.practice.com.congmingyuedu.databinding.FragmentVocabularyDetailsBinding
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_vocabulary_details.*
 
 class VocabularyDetailsFragment : Fragment() {
 
@@ -23,22 +24,34 @@ class VocabularyDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return FragmentVocabularyDetailsBinding.inflate(inflater, container, false
-        ).apply {
-            this.lifecycleOwner = this@VocabularyDetailsFragment
-            this.viewModel = vocabularyDetailsViewModel
+        return inflater.inflate(R.layout.fragment_vocabulary_details, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        vocabularyDetailsViewModel.vocabularyDetails.observe(this, Observer {
             vocabularyDetailsViewModel.setUpVocabularyDetailsById(args.vocabularyIdArg)
             when (vocabularyDetailsViewModel.vocabularyDetails.value!!.isStared ){
                 true -> imageViewStar.setImageResource(R.drawable.ic_starred_true50x50)
                 false -> imageViewStar.setImageResource(R.drawable.ic_starred_false50x50)
             }
-            imageButtonDelete.setOnClickListener{
-                showAlertDialog()
-            }
-            imageViewStar.setOnClickListener {
-                vocabularyDetailsViewModel.invertStarStatusById(args.vocabularyIdArg)
-            }
-        }.root
+
+            textViewSimplified.text = it.simplified
+            textViewTraditional.text = it.traditional
+            textViewPinyin.text = it.pinyin
+            textViewTranslation.text = it.translation
+            textViewInfo.text = it.info
+            textViewExample.text = it.examples
+        })
+
+        imageButtonDelete.setOnClickListener{
+            showAlertDialog()
+        }
+
+        imageViewStar.setOnClickListener {
+            vocabularyDetailsViewModel.invertStarStatusById(args.vocabularyIdArg)
+        }
     }
 
     private fun showAlertDialog() {

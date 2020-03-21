@@ -2,17 +2,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <import type="androidx.fragment.app.Fragment"/>
-        <variable
-                name="viewModel"
-                type="android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsViewModel" />
-    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="24dp"
+            android:elevation="8dp"
+            android:background="@color/colorWhite"
             tools:context=".ui.vocabularydetails.VocabularyDetailsFragment" >
 
         <ImageView
@@ -27,9 +25,10 @@
 
         <TextView
                 android:id="@+id/textViewSimplified"
-                android:text="@{viewModel.vocabularyDetails.simplified}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:elevation="16dp"
+                android:textSize="50sp"
                 android:layout_margin="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +36,6 @@
 
         <TextView
                 android:id="@+id/textViewTraditional"
-                android:text="@{viewModel.vocabularyDetails.traditional}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -47,7 +45,6 @@
 
         <TextView
                 android:id="@+id/textViewPinyin"
-                android:text="@{viewModel.vocabularyDetails.pinyin}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -57,9 +54,9 @@
 
         <TextView
                 android:id="@+id/textViewTranslation"
-                android:text="@{viewModel.vocabularyDetails.translation}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
                 android:layout_margin="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +64,6 @@
 
         <TextView
                 android:id="@+id/textViewInfo"
-                android:text="@{viewModel.vocabularyDetails.info}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -97,7 +93,6 @@
 
         <TextView
                 android:id="@+id/textViewExample"
-                android:text="@{viewModel.vocabularyDetails.examples}"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8dp"

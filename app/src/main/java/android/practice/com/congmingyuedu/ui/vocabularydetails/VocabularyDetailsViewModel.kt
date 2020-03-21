@@ -16,7 +16,7 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
 
     private val repository: TextRepository
 
-    var vocabularyDetails : MutableLiveData<VocabularyDetails>
+     var vocabularyDetails : MutableLiveData<VocabularyDetails>
 
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
@@ -58,28 +58,32 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
         var vocabularyContentFromDictionary: ChineseDictionary
         var word: Vocabulary
 
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch{
             word = getVocabularyById(id)
             vocabularyContentFromDictionary = getWordFromChineseDictionary(word.vocabularyContent)
 
             if (vocabularyContentFromDictionary == null || vocabularyContentFromDictionary.wordSimplified.isNullOrEmpty()){
 
-                vocabularyDetails.value?.isStared = word.vocabularyStarred
-                vocabularyDetails.value?.simplified = word.vocabularyContent
-                vocabularyDetails.value?.info = word.vocabularyExtraInfo
+                vocabularyDetails = MutableLiveData(
+                    VocabularyDetails(word.vocabularyStarred,
+                    word.vocabularyContent,
+                    "",
+                    "",
+                    "",
+                    word.vocabularyExtraInfo,
+                    "Examples to be implemented")
+                )
             }else {
-                vocabularyDetails.value?.isStared = word.vocabularyStarred
-                vocabularyDetails.value?.simplified = vocabularyContentFromDictionary.wordSimplified
-                vocabularyDetails.value?.traditional =
-                    vocabularyContentFromDictionary.wordTraditional
-                vocabularyDetails.value?.pinyin = vocabularyContentFromDictionary.wordPinyin
-                vocabularyDetails.value?.translation =
-                    vocabularyContentFromDictionary.wordTranslation
-                vocabularyDetails.value?.info = word.vocabularyExtraInfo
+                vocabularyDetails = MutableLiveData(VocabularyDetails(
+                    word.vocabularyStarred,
+                    vocabularyContentFromDictionary.wordSimplified,
+                    vocabularyContentFromDictionary.wordSimplified,
+                    vocabularyContentFromDictionary.wordPinyin,
+                    vocabularyContentFromDictionary.wordTranslation,
+                    word.vocabularyExtraInfo, "Examples to be implemented"))
 
             }
             //TODO populate vocabularyExamples
-            vocabularyDetails.value?.examples = "Examples"
         }
     }
 
