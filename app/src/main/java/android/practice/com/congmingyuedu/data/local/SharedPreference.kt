@@ -26,7 +26,7 @@ class SharedPreference(val context: Context) {
     fun save(KEY_NAME: String, value: Int){
         val editor: SharedPreferences.Editor = sharedPref.edit()
         editor.putInt(KEY_NAME, value)
-        editor.commit()
+        editor.apply()
     }
 
     fun getValueInt(KEY_NAME: String): Int{
