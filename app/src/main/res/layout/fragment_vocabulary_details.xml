@@ -33,6 +33,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:contentDescription="@string/delete_button_description"
+                android:scaleType="centerCrop"
                 android:src="@android:drawable/ic_delete"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,6 +55,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:contentDescription="@string/button_edit_vocabulary"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,6 +66,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:contentDescription="@string/star_toggle_button_description"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_starred_false50x50"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
