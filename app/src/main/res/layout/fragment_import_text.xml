@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--聪明阅读(CongMingYueDu) Chinese text reader with tools to learn vocabulary
+        Copyright (C) 2020 Rodrigo Konzen Kirch
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see <https://www.gnu.org/licenses/>.-->
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.importtext.ImportTextFragment">
-
 
     <TextView
             android:id="@+id/textViewTitle"
@@ -25,14 +39,11 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="@string/hint_title"
+            android:importantForAutofill="no"
             app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"/>
+            android:layout_margin="8dp"/>
 
     <Button
             android:id="@+id/buttonSave"
@@ -43,11 +54,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"/>
+            android:layout_margin="8dp"/>
     <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -55,12 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/buttonSave"
             app:layout_constraintTop_toBottomOf="@+id/editTextTitle"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_margin="8dp">
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical">
@@ -69,7 +71,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
-                    android:hint="@string/hint_import_fragment_content"/>
+                    android:hint="@string/hint_import_fragment_content"
+                    android:importantForAutofill="no"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

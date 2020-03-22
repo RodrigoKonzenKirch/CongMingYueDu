@@ -1,3 +1,19 @@
+/* 聪明阅读(CongMingYueDu) Chinese text reader with tools to learn vocabulary
+Copyright (C) 2020 Rodrigo Konzen Kirch
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
+
 package android.practice.com.congmingyuedu.adapters
 
 import android.app.AlertDialog
@@ -5,17 +21,14 @@ import android.content.Context
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.ChineseText
 import android.practice.com.congmingyuedu.ui.deletetext.DeleteTextViewModel
-import android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.recyclerview_item_delete_text.view.*
 
-class DeleteTextListAdapter internal constructor(val viewModel: DeleteTextViewModel): RecyclerView.Adapter<DeleteTextListAdapter.DeleteTextViewHolder>(){
+class DeleteTextListAdapter internal constructor(private val viewModel: DeleteTextViewModel): RecyclerView.Adapter<DeleteTextListAdapter.DeleteTextViewHolder>(){
 
     private var texts = emptyList<ChineseText>()
 
