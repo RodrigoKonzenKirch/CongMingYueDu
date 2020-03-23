@@ -22,9 +22,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
+import android.practice.com.congmingyuedu.adapters.ShowGlossaryListAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.glossary_fragment.*
 
@@ -41,7 +43,22 @@ class GlossaryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         var currentText = ""
+
+        val recyclerView = recyclerViewGlossaryFragment
+        val adapter = ShowGlossaryListAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(view?.context)
+
+        viewModel.mCurrentText.observe(viewLifecycleOwner, Observer { mText ->
+            currentText = mText
+        })
+
+        viewModel.vocabularyList.observe(viewLifecycleOwner, Observer { vocabularyList ->
+            vocabularyList.filter {vocabulary -> currentText.contains(vocabulary.vocabularyContent) }
+                .let { adapter.setVocabularyList(it) }
+        })
 
         buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
@@ -54,22 +71,6 @@ class GlossaryFragment : Fragment() {
         buttonGlossaryFragmentFlipToTextRight.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.textFragment)
         }
-
-        viewModel.mCurrentText.observe(viewLifecycleOwner, Observer { mText ->
-            currentText = mText
-        })
-
-        viewModel.vocabularyList.observe(viewLifecycleOwner, Observer { vocabList ->
-            var formattedString = ""
-                vocabList.forEach {
-                        when{
-                            currentText.contains(it.vocabularyContent) ->
-                                formattedString = "$formattedString -->  ${it.vocabularyContent}\n"
-                        }
-                }
-
-            textViewGlossaryFragment.text = formattedString
-        })
 
     }
 }

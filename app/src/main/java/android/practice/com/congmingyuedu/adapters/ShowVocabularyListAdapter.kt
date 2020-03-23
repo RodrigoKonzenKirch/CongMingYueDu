@@ -29,7 +29,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recyclerview_item_show_vocabulary.view.*
 
-class ShowVocabularyListAdapter internal constructor(val viewModel: VocabularyViewModel): RecyclerView.Adapter<ShowVocabularyListAdapter.ShowVocabularyViewHolder>(){
+class ShowVocabularyListAdapter internal constructor(private val viewModel: VocabularyViewModel): RecyclerView.Adapter<ShowVocabularyListAdapter.ShowVocabularyViewHolder>(){
 
     private var vocabularyList = emptyList<Vocabulary>()
 

@@ -25,6 +25,10 @@
                 android:id="@+id/action_glossaryFragment_to_textFragment"
                 app:destination="@id/textFragment"
                 app:launchSingleTop="true" />
+        <action
+                android:id="@+id/action_glossaryFragment_to_vocabularyDetailsFragment"
+                app:destination="@id/vocabularyDetailsFragment"
+                app:launchSingleTop="true" />
     </fragment>
     <fragment android:id="@+id/textFragment" android:name="android.practice.com.congmingyuedu.ui.text.TextFragment"
               android:label="Text" tools:layout="@layout/text_fragment">
