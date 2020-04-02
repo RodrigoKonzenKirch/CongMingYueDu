@@ -90,7 +90,7 @@
             tools:layout="@layout/fragment_vocabulary_details">
         <argument
                 android:name="vocabularyIdArg"
-                app:argType="long" />
+                app:argType="integer" />
         <action
                 android:id="@+id/action_vocabularyDetailsFragment_to_showVocabularyFragment"
                 app:destination="@id/showVocabularyFragment"

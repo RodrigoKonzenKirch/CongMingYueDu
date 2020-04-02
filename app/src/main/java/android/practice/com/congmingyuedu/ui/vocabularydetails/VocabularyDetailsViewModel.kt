@@ -22,9 +22,7 @@ import android.practice.com.congmingyuedu.data.local.AppDatabase
 import android.practice.com.congmingyuedu.data.local.ChineseDictionary
 import android.practice.com.congmingyuedu.data.local.Vocabulary
 import android.practice.com.congmingyuedu.data.local.VocabularyDetails
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -32,7 +30,8 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
 
     private val repository: TextRepository
 
-     var vocabularyDetails : MutableLiveData<VocabularyDetails>
+    var vocabularyDetails : MutableLiveData<VocabularyDetails>
+    var allVocab:LiveData<List<Vocabulary>>
 
     init {
         val textDao = AppDatabase.getInstance(application)!!.textDao()
@@ -55,9 +54,13 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
                 "ex"
             )
         )
+//        var ccc = viewModelScope.launch { Transformations.switchMap(vocabularyDetails, (id -> ) id-> {
+//            repository.getVocabularyById(vocab)
+//        }) }
+        allVocab = repository.allVocabulary
     }
 
-    private suspend fun getWordFromChineseDictionary(word: String): ChineseDictionary {
+     suspend fun getWordFromChineseDictionary(word: String): ChineseDictionary {
         return repository.getWordFromChineseDictionary(word)
     }
 

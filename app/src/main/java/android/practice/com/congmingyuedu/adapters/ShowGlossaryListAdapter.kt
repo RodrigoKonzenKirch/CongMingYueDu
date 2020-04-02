@@ -43,7 +43,7 @@ class ShowGlossaryListAdapter: RecyclerView.Adapter<ShowGlossaryListAdapter.Show
     override fun onBindViewHolder(holder: ShowGlossaryViewHolder, position: Int) {
         holder.textViewItem.text = vocabularyList[position].vocabularyContent
         holder.textViewItem.setOnClickListener {
-            val action = GlossaryFragmentDirections.actionGlossaryFragmentToVocabularyDetailsFragment(vocabularyList[position].id!!)
+            val action = GlossaryFragmentDirections.actionGlossaryFragmentToVocabularyDetailsFragment(position)
             Navigation.findNavController(holder.textViewItem).navigate(action)
         }
     }
