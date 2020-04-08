@@ -38,11 +38,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:importantForAutofill="no"
             android:ems="10"
             android:hint="@string/add_vocabulary_fragment_hint"
+            android:importantForAutofill="no"
             android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonClipboard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewAddVocabularyHeader" />
 
@@ -68,5 +68,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextExtraInfo" />
+
+    <ImageButton
+            android:id="@+id/imageButtonClipboard"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_clipboard_80"
+            android:contentDescription="@string/get_text_from_clipboard"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextAddVocabulary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextAddVocabulary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

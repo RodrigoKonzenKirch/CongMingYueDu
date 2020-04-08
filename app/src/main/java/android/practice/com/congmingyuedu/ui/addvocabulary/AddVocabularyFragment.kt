@@ -16,6 +16,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
 package android.practice.com.congmingyuedu.ui.addvocabulary
 
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,6 +36,7 @@ import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
 class AddVocabularyFragment : Fragment() {
 
     private val vocabularyViewModel: VocabularyViewModel by viewModels()
+    private lateinit var myClipboard: ClipboardManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +49,7 @@ class AddVocabularyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        myClipboard = activity?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         editTextAddVocabulary.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 buttonAddVocabulary.isEnabled = !editTextAddVocabulary.text.isBlank()
@@ -54,6 +58,11 @@ class AddVocabularyFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
+
+        imageButtonClipboard.setOnClickListener {
+            val mClipboardContent = myClipboard.primaryClip
+            editTextAddVocabulary.text.append(mClipboardContent?.getItemAt(0)?.text.toString())
+        }
 
         buttonAddVocabulary.setOnClickListener {
             vocabularyViewModel.insertVocabulary(
