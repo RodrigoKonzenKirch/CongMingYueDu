@@ -21,7 +21,6 @@ import android.os.Bundle
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.adapters.VocabularyDetailsAdapter
 import android.practice.com.congmingyuedu.data.local.Vocabulary
-import android.practice.com.congmingyuedu.data.local.VocabularyDetails
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +30,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.viewpager2.widget.ViewPager2
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_vocabulary_details.*
 
@@ -40,14 +38,7 @@ class VocabularyDetailsFragment : Fragment() {
     private val vocabularyDetailsViewModel: VocabularyDetailsViewModel by viewModels()
     private val args: VocabularyDetailsFragmentArgs by navArgs()
     private lateinit var vocabularyDetailsAdapter: VocabularyDetailsAdapter
-    // TODO: Send real data instead of this mock list
-    private var mockContent = arrayListOf(
-        VocabularyDetails(false,"ws1", "wt1", "pin1", "translation1", "info1","example1"),
-        VocabularyDetails(false,"ws2", "wt2", "pin2", "translation2", "info2","example2"),
-        VocabularyDetails(false,"ws3", "wt3", "pin3", "translation3", "info3","example3"),
-        VocabularyDetails(false,"ws4", "wt4", "pin4", "translation4", "info4","example4"),
-        VocabularyDetails(false,"ws5", "wt5", "pin5", "translation5", "info5","example5")
-    )
+
     private var vocabMockForNow = listOf<Vocabulary>()
 
     override fun onCreateView(

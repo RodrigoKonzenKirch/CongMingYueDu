@@ -16,6 +16,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
 package android.practice.com.congmingyuedu.adapters
 
+import android.graphics.Typeface
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
 import android.practice.com.congmingyuedu.ui.glossary.GlossaryFragmentDirections
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.recyclerview_item_show_glossary.view.*
 
 class ShowGlossaryListAdapter: RecyclerView.Adapter<ShowGlossaryListAdapter.ShowGlossaryViewHolder>(){
 
-    private var vocabularyList = emptyList<Vocabulary>()
+    private var vocabularyList = emptyList<Pair<Int, Vocabulary>>()
 
     inner class ShowGlossaryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val textViewItem: TextView = itemView.textViewGlossaryContent
@@ -41,15 +42,28 @@ class ShowGlossaryListAdapter: RecyclerView.Adapter<ShowGlossaryListAdapter.Show
     }
 
     override fun onBindViewHolder(holder: ShowGlossaryViewHolder, position: Int) {
-        holder.textViewItem.text = vocabularyList[position].vocabularyContent
+        if (vocabularyList[position].second.vocabularyStarred){
+            holder.textViewItem.setTypeface(null, Typeface.BOLD)
+        }
+        holder.textViewItem.text = vocabularyList[position].second.vocabularyContent
         holder.textViewItem.setOnClickListener {
             val action = GlossaryFragmentDirections.actionGlossaryFragmentToVocabularyDetailsFragment(position)
             Navigation.findNavController(holder.textViewItem).navigate(action)
         }
     }
 
-    internal fun setVocabularyList(vocabularyList: List<Vocabulary>){
-        this.vocabularyList = vocabularyList
+    internal fun setVocabularyList(vocabularyList: List<Vocabulary>, currentText: String){
+        val sortedVocabularyList = mutableListOf<Pair<Int, Vocabulary>>()
+
+        // Sort list of words by first appearance in the current text
+        if (currentText.isNotBlank() && vocabularyList.isNotEmpty()){
+            vocabularyList.forEach{
+                sortedVocabularyList.add(Pair(currentText.indexOf(it.vocabularyContent), it))
+            }
+            sortedVocabularyList.sortBy { it.first }
+        }
+
+        this.vocabularyList = sortedVocabularyList
         notifyDataSetChanged()
     }
 

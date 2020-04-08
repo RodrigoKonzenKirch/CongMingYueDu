@@ -57,7 +57,7 @@ class GlossaryFragment : Fragment() {
 
         viewModel.vocabularyList.observe(viewLifecycleOwner, Observer { vocabularyList ->
             vocabularyList.filter {vocabulary -> currentText.contains(vocabulary.vocabularyContent) }
-                .let { adapter.setVocabularyList(it) }
+                .let { adapter.setVocabularyList(it, currentText) }
         })
 
         buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
