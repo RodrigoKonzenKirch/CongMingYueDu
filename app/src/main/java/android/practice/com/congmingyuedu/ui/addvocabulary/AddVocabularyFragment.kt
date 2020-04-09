@@ -50,7 +50,7 @@ class AddVocabularyFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         myClipboard = activity?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-        editTextAddVocabulary.addTextChangedListener(object: TextWatcher{
+        editTextAddVocabulary.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 buttonAddVocabulary.isEnabled = !editTextAddVocabulary.text.isBlank()
             }
@@ -76,7 +76,11 @@ class AddVocabularyFragment : Fragment() {
             editTextAddVocabulary.text.clear()
             editTextExtraInfo.text.clear()
             hideKeyboard()
-            Snackbar.make(addVocabularyLayout, resources.getString(R.string.add_vocabulary_success), Snackbar.LENGTH_LONG).show()
+            Snackbar.make(
+                addVocabularyLayout,
+                resources.getString(R.string.add_vocabulary_success),
+                Snackbar.LENGTH_LONG
+            ).show()
         }
     }
 

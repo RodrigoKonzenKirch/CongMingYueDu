@@ -31,13 +31,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.text_fragment.*
 
 class TextFragment : Fragment() {
 
     private val textViewModel: TextViewModel by viewModels()
-    companion object{
+
+    companion object {
         const val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
         const val KEY_PREF_HIGHLIGHT_COLOR = "COLOR_OF_HIGHLIGHTING"
     }
@@ -53,12 +55,13 @@ class TextFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val highlightColorDexCode: String
-        val sharedPref: SharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+        val sharedPref: SharedPreferences =
+            androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
         val textPref: Int = sharedPref.getInt(KEY_PREF_TEXT_FONT_SIZE, 16)
         textViewTextFragment.textSize = textPref.toFloat()
 
         val highlightColorPref: String? = sharedPref.getString(KEY_PREF_HIGHLIGHT_COLOR, "Yellow")
-        highlightColorDexCode = when(highlightColorPref){
+        highlightColorDexCode = when (highlightColorPref) {
             "Yellow" -> "#FFFF55"
             "Green" -> "#90EE90"
             "Blue" -> "#99CCFF"
@@ -67,22 +70,43 @@ class TextFragment : Fragment() {
         }
 
         var mCurrentTextAsString = ""
+        var mCurrentTextTitle = ""
         var mVocabularyList = listOf<Vocabulary>()
 
         textViewModel.currentText.observe(viewLifecycleOwner, Observer {
+            mCurrentTextTitle = it.textTitle
             mCurrentTextAsString = it.textContent
-            if (mVocabularyList.isNotEmpty()){
-                textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
+            if (mVocabularyList.isNotEmpty()) {
+                textViewTextFragment.text =
+                    highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
             }
         })
 
         textViewModel.vocabularyList.observe(viewLifecycleOwner, Observer {
             mVocabularyList = it
-            if (mCurrentTextAsString.isNotEmpty()){
-                textViewTextFragment.text = highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
+            if (mCurrentTextAsString.isNotEmpty()) {
+                textViewTextFragment.text =
+                    highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
             }
         })
 
+        textViewTextFragment.setOnScrollChangeListener(fun(
+            v: View,
+            scrollX: Int,
+            scrollY: Int,
+            oldScrollX: Int,
+            oldScrollY: Int
+        ) {
+
+            if (scrollY <= 5 && oldScrollY > 5) {
+                Snackbar.make(
+                    constraintLayoutTextFragment,
+                    mCurrentTextTitle,
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+
+        })
 
         buttonTextFragmentFlipToGlossaryLeft.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.glossaryFragment)
@@ -97,36 +121,35 @@ class TextFragment : Fragment() {
         }
     }
 
-    private fun highlightText(textToBeHighlighted: String, vocabularyList: List<Vocabulary>, highlightColor: String): SpannableString{
+    private fun highlightText(
+        textToBeHighlighted: String,
+        vocabularyList: List<Vocabulary>,
+        highlightColor: String
+    ): SpannableString {
         // Get indexes of words in the string containing the text to be highlighted
         val indexesAndWordSizes = mutableListOf<Pair<Int, Int>>()
 
-        if (vocabularyList.isNotEmpty()){
-            vocabularyList.forEach{
+        if (vocabularyList.isNotEmpty()) {
+            vocabularyList.forEach {
                 var index = textToBeHighlighted.indexOf(it.vocabularyContent, 0)
-                while (index != -1){
+                while (index != -1) {
                     indexesAndWordSizes.add(Pair(index, it.vocabularyContent.length))
-                    index = textToBeHighlighted.indexOf(it.vocabularyContent, index+1)
+                    index = textToBeHighlighted.indexOf(it.vocabularyContent, index + 1)
                 }
             }
         }
 
         // Highlight words using list of indexes of each word
         val result = SpannableString(textToBeHighlighted)
-        indexesAndWordSizes.forEach{
-            result.setSpan(BackgroundColorSpan(Color.parseColor(highlightColor)), it.first, it.first+it.second,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE )
+        indexesAndWordSizes.forEach {
+            result.setSpan(
+                BackgroundColorSpan(Color.parseColor(highlightColor)),
+                it.first,
+                it.first + it.second,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
         }
         return result
     }
-
-    /*
-     *
-     * green 90ee90
-     * blue 99ccff
-     * grey d3d3d3
-     * yellow ffff55
-     *
-     *
-     * **/
 
 }
