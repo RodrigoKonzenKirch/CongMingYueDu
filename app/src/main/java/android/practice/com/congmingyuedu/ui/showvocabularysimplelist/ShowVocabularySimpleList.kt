@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_show_vocabulary_simple_list.*
 
 class ShowVocabularySimpleList : Fragment() {
 
-    private val showVocabularySimpleListViewModel: showVocabularySimpleListViewModel by viewModels()
+    private val showVocabularySimpleListViewModel: ShowVocabularySimpleListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

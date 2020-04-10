@@ -7,7 +7,7 @@ import android.practice.com.congmingyuedu.data.local.Vocabulary
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 
-class showVocabularySimpleListViewModel(application: Application) : AndroidViewModel(application) {
+class ShowVocabularySimpleListViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
     var vocabularyList: LiveData<List<Vocabulary>>
