@@ -51,6 +51,9 @@
     <string name="delete_button_description">Delete button</string>
     <string name="button_edit_vocabulary">Button to edit the vocabulary</string>
     <string name="vocabulary_details_page_counter">\u003c  %1$d\u002f%2$d  \u003e</string>
+    <string name="vocabulary_simple_list_title">%1$d WORDS</string>
     <string name="get_text_from_clipboard">Get text from clipboard</string>
+    <string name="menu_simple_list">Simple List</string>
+    <string name="vocabulary_list">VOCABULARY LIST</string>
 
 </resources>

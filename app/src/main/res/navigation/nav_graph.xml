@@ -64,6 +64,10 @@
                 android:id="@+id/action_textFragment_to_settingsFragment"
                 app:destination="@id/settingsFragment"
                 app:launchSingleTop="true" />
+        <action
+                android:id="@+id/action_textFragment_to_showVocabularySimpleList"
+                app:destination="@id/showVocabularySimpleList"
+                app:launchSingleTop="true" />
     </fragment>
     <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.ui.importtext.ImportTextFragment"
               android:label="Add/Import" tools:layout="@layout/fragment_import_text"/>
@@ -107,4 +111,8 @@
             android:id="@+id/settingsFragment"
             android:name="android.practice.com.congmingyuedu.ui.settings.SettingsFragment"
             android:label="SettingsFragment" />
+    <fragment
+            android:id="@+id/showVocabularySimpleList"
+            android:name="android.practice.com.congmingyuedu.ui.showvocabularysimplelist.ShowVocabularySimpleList"
+            android:label="showVocabularySimpleList" />
 </navigation>

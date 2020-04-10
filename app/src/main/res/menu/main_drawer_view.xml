@@ -57,6 +57,10 @@
                             android:id="@+id/nav_show_vocabulary"
                             android:icon="@drawable/ic_vocabulary_96"
                             android:title="@string/menu_vocabulary"/>
+                    <item
+                            android:id="@+id/nav_show_vocabulary_simple"
+                            android:icon="@drawable/ic_list_black_24dp"
+                            android:title="@string/menu_simple_list"/>
 
                 </group>
             </menu>

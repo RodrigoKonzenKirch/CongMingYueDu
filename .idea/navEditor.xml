@@ -48,6 +48,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_glossaryFragment_to_vocabularyDetailsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -110,6 +115,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="showVocabularySimpleList">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="378" />
+                            <option name="y" value="1081" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="textFragment">
                     <value>
                       <LayoutPositions>
@@ -142,6 +159,11 @@
                               </value>
                             </entry>
                             <entry key="action_textFragment_to_openTextFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_textFragment_to_settingsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

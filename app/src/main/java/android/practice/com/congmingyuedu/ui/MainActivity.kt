@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_delete_text -> nav_host_fragment.findNavController().navigate(R.id.deleteTextFragment)
                 R.id.nav_show_vocabulary -> nav_host_fragment.findNavController().navigate(R.id.showVocabularyFragment)
                 R.id.nav_settings -> nav_host_fragment.findNavController().navigate(R.id.settingsFragment)
+                R.id.nav_show_vocabulary_simple -> nav_host_fragment.findNavController().navigate(R.id.showVocabularySimpleList)
                 else -> Toast.makeText(this, "ELSE", Toast.LENGTH_LONG).show()
             }
 
