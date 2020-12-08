@@ -1,4 +1,4 @@
-package android.practice.com.congmingyuedu.adapters
+package android.practice.com.congmingyuedu.ui.vocabularydetails
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.data.local.Vocabulary

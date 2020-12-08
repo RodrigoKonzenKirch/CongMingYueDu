@@ -18,7 +18,6 @@ package android.practice.com.congmingyuedu.ui.showvocabulary
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.adapters.ShowVocabularyListAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

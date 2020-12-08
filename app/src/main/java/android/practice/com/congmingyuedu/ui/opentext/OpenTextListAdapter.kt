@@ -14,11 +14,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
-package android.practice.com.congmingyuedu.adapters
+package android.practice.com.congmingyuedu.ui.opentext
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.ChineseText
-import android.practice.com.congmingyuedu.ui.opentext.OpenTextViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

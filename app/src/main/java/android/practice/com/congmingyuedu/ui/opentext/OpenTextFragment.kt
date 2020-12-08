@@ -18,7 +18,6 @@ package android.practice.com.congmingyuedu.ui.opentext
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.adapters.OpenTextListAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

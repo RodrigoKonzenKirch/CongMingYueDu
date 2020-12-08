@@ -14,12 +14,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
-package android.practice.com.congmingyuedu.adapters
+package android.practice.com.congmingyuedu.ui.showvocabulary
 
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
-import android.practice.com.congmingyuedu.ui.showvocabulary.ShowVocabularyFragmentDirections
-import android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
