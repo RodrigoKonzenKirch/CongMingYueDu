@@ -18,7 +18,7 @@ package android.practice.com.congmingyuedu.ui.opentext
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.adapters.TextListAdapter
+import android.practice.com.congmingyuedu.adapters.OpenTextListAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,7 +44,7 @@ class OpenTextFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val recyclerView = recyclerviewText
-        val adapter = TextListAdapter(openTextViewModel)
+        val adapter = OpenTextListAdapter(openTextViewModel)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 

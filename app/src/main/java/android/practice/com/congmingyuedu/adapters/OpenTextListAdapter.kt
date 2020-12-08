@@ -25,9 +25,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.text_recyclerview_item.view.*
+import kotlinx.android.synthetic.main.recyclerview_item_open_text.view.*
 
-class TextListAdapter internal constructor(private val viewModel: OpenTextViewModel): RecyclerView.Adapter<TextListAdapter.TextViewHolder>(){
+class OpenTextListAdapter internal constructor(private val viewModel: OpenTextViewModel): RecyclerView.Adapter<OpenTextListAdapter.TextViewHolder>(){
 
     private var texts = emptyList<ChineseText>()
 
@@ -37,7 +37,7 @@ class TextListAdapter internal constructor(private val viewModel: OpenTextViewMo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.text_recyclerview_item, parent,false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item_open_text, parent,false)
         return TextViewHolder(itemView)
     }
 

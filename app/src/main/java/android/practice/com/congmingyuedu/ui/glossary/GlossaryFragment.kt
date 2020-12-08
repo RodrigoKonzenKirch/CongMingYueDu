@@ -28,7 +28,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.glossary_fragment.*
+import kotlinx.android.synthetic.main.fragment_glossary.*
 
 class GlossaryFragment : Fragment() {
 
@@ -38,7 +38,7 @@ class GlossaryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.glossary_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_glossary, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

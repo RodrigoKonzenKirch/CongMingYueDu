@@ -33,7 +33,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.text_fragment.*
+import kotlinx.android.synthetic.main.fragment_text.*
 
 class TextFragment : Fragment() {
 
@@ -48,7 +48,7 @@ class TextFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.text_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_text, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

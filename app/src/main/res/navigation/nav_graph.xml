@@ -20,7 +20,7 @@
             app:startDestination="@id/textFragment">
 
     <fragment android:id="@+id/glossaryFragment" android:name="android.practice.com.congmingyuedu.ui.glossary.GlossaryFragment"
-              android:label="Glossary" tools:layout="@layout/glossary_fragment">
+              android:label="Glossary" tools:layout="@layout/fragment_glossary">
         <action
                 android:id="@+id/action_glossaryFragment_to_textFragment"
                 app:destination="@id/textFragment"
@@ -31,7 +31,7 @@
                 app:launchSingleTop="true" />
     </fragment>
     <fragment android:id="@+id/textFragment" android:name="android.practice.com.congmingyuedu.ui.text.TextFragment"
-              android:label="Text" tools:layout="@layout/text_fragment">
+              android:label="Text" tools:layout="@layout/fragment_text">
         <action
                 android:id="@+id/action_textFragment_to_glossaryFragment"
                 app:destination="@id/glossaryFragment"
