@@ -2,9 +2,9 @@ package android.practice.com.congmingyuedu.ui.vocabularydetails
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.adapters.ARG_POS
-import android.practice.com.congmingyuedu.adapters.ARG_SIMP
-import android.practice.com.congmingyuedu.adapters.ARG_SIZE
+import android.practice.com.congmingyuedu.ui.vocabularydetails.ARG_POS
+import android.practice.com.congmingyuedu.ui.vocabularydetails.ARG_SIMP
+import android.practice.com.congmingyuedu.ui.vocabularydetails.ARG_SIZE
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -26,7 +26,7 @@ import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
 import android.practice.com.congmingyuedu.utils.hideKeyboard
-import android.practice.com.congmingyuedu.ui.showvocabulary.VocabularyViewModel
+import android.practice.com.congmingyuedu.ui.showvocabulary.ShowVocabularyViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.viewModels
@@ -35,7 +35,7 @@ import kotlinx.android.synthetic.main.fragment_add_vocabulary.*
 
 class AddVocabularyFragment : Fragment() {
 
-    private val vocabularyViewModel: VocabularyViewModel by viewModels()
+    private val showVocabularyViewModel: ShowVocabularyViewModel by viewModels()
     private lateinit var myClipboard: ClipboardManager
 
     override fun onCreateView(
@@ -65,7 +65,7 @@ class AddVocabularyFragment : Fragment() {
         }
 
         buttonAddVocabulary.setOnClickListener {
-            vocabularyViewModel.insertVocabulary(
+            showVocabularyViewModel.insertVocabulary(
                 Vocabulary(
                     null,
                     editTextAddVocabulary.text.toString(),

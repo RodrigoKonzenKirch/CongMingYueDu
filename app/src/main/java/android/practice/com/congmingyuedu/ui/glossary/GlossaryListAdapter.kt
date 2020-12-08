@@ -27,7 +27,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recyclerview_item_show_glossary.view.*
 
-class ShowGlossaryListAdapter: RecyclerView.Adapter<ShowGlossaryListAdapter.ShowGlossaryViewHolder>(){
+class GlossaryListAdapter: RecyclerView.Adapter<GlossaryListAdapter.ShowGlossaryViewHolder>(){
 
     private var vocabularyList = emptyList<Pair<Int, Vocabulary>>()
 

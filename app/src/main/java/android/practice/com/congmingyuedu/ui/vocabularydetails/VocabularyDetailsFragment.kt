@@ -19,7 +19,6 @@ package android.practice.com.congmingyuedu.ui.vocabularydetails
 import android.app.AlertDialog
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.adapters.VocabularyDetailsAdapter
 import android.practice.com.congmingyuedu.data.local.Vocabulary
 import android.util.Log
 import android.view.LayoutInflater

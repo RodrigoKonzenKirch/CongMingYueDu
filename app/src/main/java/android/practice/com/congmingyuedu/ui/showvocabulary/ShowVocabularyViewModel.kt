@@ -26,7 +26,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class VocabularyViewModel(application: Application) : AndroidViewModel(application) {
+class ShowVocabularyViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TextRepository
 

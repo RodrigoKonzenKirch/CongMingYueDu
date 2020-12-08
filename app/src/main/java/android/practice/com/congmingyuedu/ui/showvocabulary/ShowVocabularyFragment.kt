@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.fragment_show_vocabulary.*
 
 class ShowVocabularyFragment : Fragment() {
 
-    private val vocabularyViewModel: VocabularyViewModel by viewModels()
+    private val showVocabularyViewModel: ShowVocabularyViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,11 +43,11 @@ class ShowVocabularyFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val recyclerView = recyclerviewShowVocabulary
-        val adapter = ShowVocabularyListAdapter(vocabularyViewModel)
+        val adapter = ShowVocabularyListAdapter(showVocabularyViewModel)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        vocabularyViewModel.allVocabulary.observe(viewLifecycleOwner, Observer { vocabularyList ->
+        showVocabularyViewModel.allVocabulary.observe(viewLifecycleOwner, Observer { vocabularyList ->
             vocabularyList?.let { adapter.setVocabularyList(it) }
         })
 

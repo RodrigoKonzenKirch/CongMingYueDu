@@ -46,7 +46,7 @@ class GlossaryFragment : Fragment() {
         var currentText = ""
 
         val recyclerView = recyclerViewGlossaryFragment
-        val adapter = ShowGlossaryListAdapter()
+        val adapter = GlossaryListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
