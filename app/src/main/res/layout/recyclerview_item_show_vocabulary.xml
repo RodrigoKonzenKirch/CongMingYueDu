@@ -43,7 +43,7 @@
                 android:id="@+id/textViewShowVocabulary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="8dp"
+                android:paddingHorizontal="@dimen/spacing_small"
                 android:gravity="center_vertical"
                 android:textSize="24sp" />
 

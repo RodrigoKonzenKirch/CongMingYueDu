@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="@dimen/spacing_small">
 
     <TextView
             android:id="@+id/textViewRecyclerViewItemTitle"

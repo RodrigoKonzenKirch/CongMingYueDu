@@ -40,7 +40,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/spacing_small"
                 android:contentDescription="@string/delete_button_description"
                 android:scaleType="centerCrop"
                 android:src="@android:drawable/ic_delete"
@@ -53,7 +53,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/spacing_normal"
             android:background="@color/colorWhite"
             android:elevation="8dp">
 
@@ -62,7 +62,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/spacing_small"
                 android:contentDescription="@string/button_edit_vocabulary"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_edit"
@@ -73,7 +73,7 @@
                 android:id="@+id/imageViewStar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/spacing_small"
                 android:contentDescription="@string/star_toggle_button_description"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_starred_false50x50"
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/spacing_small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textViewPinyin"
                 app:layout_constraintTop_toBottomOf="@+id/textViewSimplified" />
@@ -104,7 +104,7 @@
                 android:id="@+id/textViewPinyin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="@dimen/spacing_small"
                 app:layout_constraintStart_toEndOf="@+id/textViewTraditional"
                 app:layout_constraintTop_toTopOf="@+id/textViewTraditional"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
-                android:padding="16dp"
+                android:padding="@dimen/spacing_normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTraditional" />
@@ -124,7 +124,7 @@
                 android:id="@+id/textViewInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/spacing_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTranslation" />
@@ -134,7 +134,7 @@
                 android:id="@+id/textViewLabelExample"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/spacing_small"
                 android:text="@string/example"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewInfo" />
