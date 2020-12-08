@@ -24,7 +24,8 @@ import androidx.room.PrimaryKey
 data class ChineseText(
     @ColumnInfo(name="id") @PrimaryKey(autoGenerate = true) var id: Long?,
     @ColumnInfo(name="text_title") var textTitle: String,
-    @ColumnInfo(name = "text_content") var textContent: String
+    @ColumnInfo(name = "text_content") var textContent: String,
+    @ColumnInfo(name = "text_finished") var textFinished: Boolean
 ) {
-    constructor() : this(null, "", "")
+    constructor() : this(null, "", "", false)
 }
