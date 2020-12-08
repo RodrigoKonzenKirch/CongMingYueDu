@@ -95,10 +95,10 @@ class TextFragment : Fragment() {
         })
 
         textViewTextFragment.setOnScrollChangeListener(fun(
-            v: View,
-            scrollX: Int,
+            _: View,
+            _: Int,
             scrollY: Int,
-            oldScrollX: Int,
+            _: Int,
             oldScrollY: Int
         ) {
 
