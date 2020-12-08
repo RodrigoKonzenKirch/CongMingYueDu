@@ -36,9 +36,6 @@ interface ChineseTextDao {
     @Insert
     fun insert(chineseText: ChineseText)
 
-    @Query("UPDATE texts SET page = :page WHERE id = :id")
-    fun setPageById(page: Int, id: Int)
-
     @Query("DELETE FROM texts WHERE id = :id")
     suspend fun deleteTextById(id: Long)
 }

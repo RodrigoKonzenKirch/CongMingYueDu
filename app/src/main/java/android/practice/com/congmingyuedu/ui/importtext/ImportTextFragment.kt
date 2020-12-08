@@ -61,8 +61,7 @@ class ImportTextFragment : Fragment() {
                 ChineseText(
                     null,
                     editTextTitle.text.toString(),
-                    editTextContent.text.toString(),
-                    0
+                    editTextContent.text.toString()
                 )
             )
             editTextTitle.text.clear()

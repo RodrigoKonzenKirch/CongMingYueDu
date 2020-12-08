@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "f07e018210f59d00c3b5becaa89ecc06",
+    "identityHash": "918ed168b4f0da0b25aebccd8b15bd79",
     "entities": [
       {
         "tableName": "texts",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `text_title` TEXT NOT NULL, `text_content` TEXT NOT NULL, `page` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `text_title` TEXT NOT NULL, `text_content` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -24,12 +24,6 @@
             "fieldPath": "textContent",
             "columnName": "text_content",
             "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "page",
-            "columnName": "page",
-            "affinity": "INTEGER",
             "notNull": true
           }
         ],
@@ -137,7 +131,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f07e018210f59d00c3b5becaa89ecc06')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '918ed168b4f0da0b25aebccd8b15bd79')"
     ]
   }
 }
