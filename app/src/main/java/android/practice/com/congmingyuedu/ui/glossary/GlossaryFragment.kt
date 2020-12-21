@@ -23,7 +23,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -50,11 +49,11 @@ class GlossaryFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        viewModel.mCurrentText.observe(viewLifecycleOwner, Observer { mText ->
+        viewModel.mCurrentText.observe(viewLifecycleOwner, { mText ->
             currentText = mText
         })
 
-        viewModel.vocabularyList.observe(viewLifecycleOwner, Observer { vocabularyList ->
+        viewModel.vocabularyList.observe(viewLifecycleOwner, { vocabularyList ->
             vocabularyList.filter {vocabulary -> currentText.contains(vocabulary.vocabularyContent) }
                 .let { adapter.setVocabularyList(it, currentText) }
         })

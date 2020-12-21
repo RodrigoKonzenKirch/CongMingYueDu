@@ -23,7 +23,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_open_text.*
 
@@ -47,7 +46,7 @@ class OpenTextFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        openTextViewModel.allTexts.observe(viewLifecycleOwner, Observer { texts ->
+        openTextViewModel.allTexts.observe(viewLifecycleOwner, { texts ->
             texts?.let { adapter.setTexts(it) }
         })
 

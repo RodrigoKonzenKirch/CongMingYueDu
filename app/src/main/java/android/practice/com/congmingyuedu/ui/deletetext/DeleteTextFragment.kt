@@ -23,7 +23,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.practice.com.congmingyuedu.R
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_delete_text.*
 
@@ -47,7 +46,7 @@ class DeleteTextFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        deleteTextViewModel.allTexts.observe(viewLifecycleOwner, Observer { texts ->
+        deleteTextViewModel.allTexts.observe(viewLifecycleOwner, { texts ->
             texts?.let { adapter.setTexts(it) }
         })
 

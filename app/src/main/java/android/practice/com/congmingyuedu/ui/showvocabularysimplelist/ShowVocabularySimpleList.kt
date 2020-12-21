@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_show_vocabulary_simple_list.*
 
 class ShowVocabularySimpleList : Fragment() {
@@ -26,7 +25,7 @@ class ShowVocabularySimpleList : Fragment() {
 
         showVocabularySimpleListViewModel.vocabularyList.observe(
             viewLifecycleOwner,
-            Observer { vocabList ->
+            { vocabList ->
                 var mFormattedText = ""
                 vocabList.forEach { mFormattedText += "${it.vocabularyContent} " }
                 textViewVocabularySimpleList.text = mFormattedText

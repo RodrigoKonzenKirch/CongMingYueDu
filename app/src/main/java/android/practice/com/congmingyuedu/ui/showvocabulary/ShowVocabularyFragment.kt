@@ -23,7 +23,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_show_vocabulary.*
 
@@ -47,7 +46,7 @@ class ShowVocabularyFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
 
-        showVocabularyViewModel.allVocabulary.observe(viewLifecycleOwner, Observer { vocabularyList ->
+        showVocabularyViewModel.allVocabulary.observe(viewLifecycleOwner, { vocabularyList ->
             vocabularyList?.let { adapter.setVocabularyList(it) }
         })
 
