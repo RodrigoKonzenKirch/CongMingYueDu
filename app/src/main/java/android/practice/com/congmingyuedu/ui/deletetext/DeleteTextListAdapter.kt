@@ -46,10 +46,10 @@ class DeleteTextListAdapter internal constructor(private val viewModel: DeleteTe
         val current = texts[position]
         val formattedContent: String
 
-        if(current.textContent.length > 50){
-            formattedContent = current.textContent.substring(0, 50)
+        formattedContent = if(current.textContent.length > 50){
+            current.textContent.substring(0, 50)
         } else{
-            formattedContent = current.textContent
+            current.textContent
         }
 
         holder.textItemViewTitle.text = current.textTitle
