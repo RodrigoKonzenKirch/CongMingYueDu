@@ -31,7 +31,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_text.*
 
@@ -70,13 +69,11 @@ class TextFragment : Fragment() {
         }
 
         var mCurrentTextAsString = ""
-        var mCurrentTextTitle = ""
         var mVocabularyList = listOf<Vocabulary>()
 
         textViewModel.currentText.observe(viewLifecycleOwner, Observer {
-
             if(it != null){
-                mCurrentTextTitle = it.textTitle
+                activity?.title = it.textTitle
                 mCurrentTextAsString = it.textContent
             }
 
@@ -92,24 +89,6 @@ class TextFragment : Fragment() {
                 textViewTextFragment.text =
                     highlightText(mCurrentTextAsString, mVocabularyList, highlightColorDexCode)
             }
-        })
-
-        textViewTextFragment.setOnScrollChangeListener(fun(
-            _: View,
-            _: Int,
-            scrollY: Int,
-            _: Int,
-            oldScrollY: Int
-        ) {
-
-            if (scrollY <= 5 && oldScrollY > 5) {
-                Snackbar.make(
-                    constraintLayoutTextFragment,
-                    mCurrentTextTitle,
-                    Snackbar.LENGTH_LONG
-                ).show()
-            }
-
         })
 
         buttonTextFragmentFlipToGlossaryLeft.setOnClickListener {
