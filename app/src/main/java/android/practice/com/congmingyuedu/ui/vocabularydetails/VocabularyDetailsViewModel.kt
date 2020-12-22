@@ -50,8 +50,7 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
                 "trad",
                 "pin",
                 "tran",
-                "info",
-                "ex"
+                "info"
             )
         )
 //        var ccc = viewModelScope.launch { Transformations.switchMap(vocabularyDetails, (id -> ) id-> {
@@ -89,8 +88,7 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
                     "",
                     "",
                     "",
-                    word.vocabularyExtraInfo,
-                    "Examples to be implemented")
+                    word.vocabularyExtraInfo)
                 )
             }else {
                 vocabularyDetails = MutableLiveData(VocabularyDetails(
@@ -99,7 +97,7 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
                     vocabularyContentFromDictionary.wordSimplified,
                     vocabularyContentFromDictionary.wordPinyin,
                     vocabularyContentFromDictionary.wordTranslation,
-                    word.vocabularyExtraInfo, "Examples to be implemented"))
+                    word.vocabularyExtraInfo))
 
             }
             //TODO populate vocabularyExamples

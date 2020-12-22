@@ -18,7 +18,6 @@ package android.practice.com.congmingyuedu.data
 
 import android.content.Context
 import android.practice.com.congmingyuedu.data.local.*
-import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 
 class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao,
@@ -30,27 +29,12 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
         SharedPreference(context)
     var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
 
-    @WorkerThread
     fun insertText(chineseText: ChineseText){
         chineseTextDao.insert(chineseText)
     }
 
     fun insertVocabulary(vocabulary: Vocabulary){
-        if (!vocabularyAlreadyExist(vocabulary)){
             vocabularyDao.insert(vocabulary)
-        }
-    }
-
-    private fun vocabularyAlreadyExist(vocabulary: Vocabulary):Boolean{
-        var alreadyExist = false
-        val allVocabularyTemp = allVocabulary.value
-        if (!allVocabularyTemp.isNullOrEmpty()) {
-            allVocabularyTemp.forEach {
-                if (vocabulary.vocabularyContent == it.vocabularyContent)
-                    alreadyExist=true
-            }
-        }
-        return alreadyExist
     }
 
     fun setCurrentTextId(id:Int){

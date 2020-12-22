@@ -33,10 +33,6 @@ interface ChineseDictionaryDao {
     fun getCountDictionary(): Int
 
     @Insert
-    fun insert(chineseDictionary: ChineseDictionary)
-
-    @Insert
     fun insertAll(chineseDictionary: List<ChineseDictionary>)
-
 
 }

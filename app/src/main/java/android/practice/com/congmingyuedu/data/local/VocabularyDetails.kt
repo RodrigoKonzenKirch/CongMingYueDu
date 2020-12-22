@@ -22,5 +22,4 @@ data class VocabularyDetails(
     var traditional: String = "",
     var pinyin: String = "",
     var translation: String = "",
-    var info: String = "",
-    var examples: String = "")
+    var info: String = "")

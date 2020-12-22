@@ -43,7 +43,7 @@ class VocabularyDetailsItemFragment: Fragment() {
                 getInt(ARG_POS)+1, getInt(ARG_SIZE))
             position = getInt(ARG_POS)
         }
-        vocabularyDetailsViewModel.allVocab.observe(viewLifecycleOwner, Observer {vocabList ->
+        vocabularyDetailsViewModel.allVocab.observe(viewLifecycleOwner, { vocabList ->
             val iuScope = CoroutineScope(Dispatchers.Main)
             iuScope.launch {
                 val ww = withContext(Dispatchers.IO){
