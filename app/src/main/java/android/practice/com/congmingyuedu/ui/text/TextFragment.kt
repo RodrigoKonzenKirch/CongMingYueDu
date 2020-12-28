@@ -111,7 +111,6 @@ class TextFragment : Fragment() {
                 View.GONE -> constraintLayoutAddVocabulary.visibility = View.VISIBLE
                 View.VISIBLE -> constraintLayoutAddVocabulary.visibility = View.GONE
             }
-            //nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
         }
 
         myClipboard = activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

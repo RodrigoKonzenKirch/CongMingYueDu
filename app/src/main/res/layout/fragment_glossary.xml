@@ -33,45 +33,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/buttonGlossaryFragmentToAddVocabulary"
+            app:layout_constraintBottom_toTopOf="@+id/buttonGlossaryFragmentFlipToText"
             />
 
     <Button
-            android:id="@+id/buttonGlossaryFragmentToAddVocabulary"
-            android:text="@string/button_add_vocabulary"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:layout_constraintStart_toEndOf="@id/buttonGlossaryFragmentFlipToTextLeft"
-            app:layout_constraintEnd_toStartOf="@id/buttonGlossaryFragmentFlipToTextRight"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="4dp"
-            android:layout_marginHorizontal="@dimen/spacing_small"/>
-
-    <Button
-            android:id="@+id/buttonGlossaryFragmentFlipToTextLeft"
+            android:id="@+id/buttonGlossaryFragmentFlipToText"
             android:text="@string/button_text"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/buttonGlossaryFragmentToAddVocabulary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="@dimen/spacing_small"
-    />
-
-    <Button
-            android:id="@+id/buttonGlossaryFragmentFlipToTextRight"
-            android:text="@string/button_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:layout_constraintStart_toEndOf="@id/buttonGlossaryFragmentToAddVocabulary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="4dp"
-            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginHorizontal="@dimen/spacing_small"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

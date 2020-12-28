@@ -58,15 +58,7 @@ class GlossaryFragment : Fragment() {
                 .let { adapter.setVocabularyList(it, currentText) }
         })
 
-        buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
-            //nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
-        }
-
-        buttonGlossaryFragmentFlipToTextLeft.setOnClickListener {
-            nav_host_fragment.findNavController().navigate(R.id.textFragment)
-        }
-
-        buttonGlossaryFragmentFlipToTextRight.setOnClickListener {
+        buttonGlossaryFragmentFlipToText.setOnClickListener {
             nav_host_fragment.findNavController().navigate(R.id.textFragment)
         }
 
