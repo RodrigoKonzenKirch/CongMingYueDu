@@ -45,10 +45,6 @@
                 app:destination="@id/importFragment"
                 app:launchSingleTop="true" />
         <action
-                android:id="@+id/action_textFragment_to_addVocabularyFragment"
-                app:destination="@id/addVocabularyFragment"
-                app:launchSingleTop="true" />
-        <action
                 android:id="@+id/action_textFragment_to_showVocabularyFragment"
                 app:destination="@id/showVocabularyFragment"
                 app:launchSingleTop="true" />
@@ -71,9 +67,6 @@
     </fragment>
     <fragment android:id="@+id/importFragment" android:name="android.practice.com.congmingyuedu.ui.importtext.ImportTextFragment"
               android:label="Add/Import" tools:layout="@layout/fragment_import_text"/>
-    <fragment android:id="@+id/addVocabularyFragment"
-              android:name="android.practice.com.congmingyuedu.ui.addvocabulary.AddVocabularyFragment"
-              android:label="Add vocabulary" tools:layout="@layout/fragment_add_vocabulary"/>
     <fragment android:id="@+id/showVocabularyFragment"
               android:name="android.practice.com.congmingyuedu.ui.showvocabulary.ShowVocabularyFragment"
               android:label="Vocabulary" tools:layout="@layout/fragment_show_vocabulary">

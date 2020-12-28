@@ -23,6 +23,9 @@ import android.practice.com.congmingyuedu.data.local.ChineseText
 import android.practice.com.congmingyuedu.data.local.Vocabulary
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class TextViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -43,6 +46,10 @@ class TextViewModel(application: Application) : AndroidViewModel(application) {
         )
         currentText = repository.currentText
         vocabularyList = repository.allVocabulary
+    }
+
+    fun insertVocabulary(vocabulary: Vocabulary) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insertVocabulary(vocabulary)
     }
 
 }

@@ -83,7 +83,7 @@
                 android:id="@+id/constraintLayoutAddVocabulary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:background="@color/colorWhite"
                 android:layout_marginVertical="@dimen/spacing_small"
                 android:elevation="4dp"
@@ -117,15 +117,16 @@
                     app:layout_constraintTop_toBottomOf="@id/editTextAddVocabulary" />
 
             <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonAddVocabulary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@string/button_add_word_or_phrase"
                     android:layout_marginHorizontal="@dimen/spacing_small"
+                    android:enabled="false"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/editTextExtraInfo"
-
-                    android:text="@string/button_add_word_or_phrase" />
+                    />
 
             <ImageButton
                     android:id="@+id/imageButtonClipboard"

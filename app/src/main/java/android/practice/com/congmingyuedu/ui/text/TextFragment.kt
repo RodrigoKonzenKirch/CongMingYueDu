@@ -16,13 +16,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
 package android.practice.com.congmingyuedu.ui.text
 
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
 import android.practice.com.congmingyuedu.data.local.Vocabulary
+import android.practice.com.congmingyuedu.utils.hideKeyboard
+import android.text.Editable
 import android.text.SpannableString
 import android.text.Spanned
+import android.text.TextWatcher
 import android.text.style.BackgroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
@@ -30,12 +35,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_text.*
+import kotlinx.android.synthetic.main.fragment_text.editTextAddVocabulary
 
 class TextFragment : Fragment() {
 
     private val textViewModel: TextViewModel by viewModels()
+    private lateinit var myClipboard: ClipboardManager
 
     companion object {
         const val KEY_PREF_TEXT_FONT_SIZE = "MAIN_TEXT_FONT_SIZE"
@@ -105,6 +113,41 @@ class TextFragment : Fragment() {
             }
             //nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
         }
+
+        myClipboard = activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        editTextAddVocabulary.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                buttonAddVocabulary.isEnabled = editTextAddVocabulary.text.isNotBlank()
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        imageButtonClipboard.setOnClickListener {
+            val mClipboardContent = myClipboard.primaryClip
+            editTextAddVocabulary.text.append(mClipboardContent?.getItemAt(0)?.text.toString())
+        }
+
+        buttonAddVocabulary.setOnClickListener {
+            textViewModel.insertVocabulary(
+                Vocabulary(
+                    null,
+                    editTextAddVocabulary.text.toString(),
+                    false,
+                    editTextExtraInfo.text.toString()
+                )
+            )
+            editTextAddVocabulary.text.clear()
+            editTextExtraInfo.text.clear()
+            hideKeyboard()
+            Snackbar.make(
+                constraintLayoutTextFragment,
+                resources.getString(R.string.add_vocabulary_success),
+                Snackbar.LENGTH_SHORT
+            ).show()
+        }
+
     }
 
     private fun highlightText(

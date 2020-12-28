@@ -59,7 +59,7 @@ class GlossaryFragment : Fragment() {
         })
 
         buttonGlossaryFragmentToAddVocabulary.setOnClickListener {
-            nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
+            //nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
         }
 
         buttonGlossaryFragmentFlipToTextLeft.setOnClickListener {
