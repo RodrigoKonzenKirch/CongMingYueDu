@@ -99,7 +99,11 @@ class TextFragment : Fragment() {
         }
 
         buttonTextFragmentToAddVocabulary.setOnClickListener {
-            nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
+            when(constraintLayoutAddVocabulary.visibility) {
+                View.GONE -> constraintLayoutAddVocabulary.visibility = View.VISIBLE
+                View.VISIBLE -> constraintLayoutAddVocabulary.visibility = View.GONE
+            }
+            //nav_host_fragment.findNavController().navigate(R.id.addVocabularyFragment)
         }
     }
 

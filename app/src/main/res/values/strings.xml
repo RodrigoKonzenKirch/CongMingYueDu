@@ -30,8 +30,8 @@
     <string name="menu_vocabulary">Vocabulary</string>
     <string name="add_vocabulary_fragment_header">Add new vocabulary</string>
     <string name="add_vocabulary_success">Word/Phrase added successfully!</string>
-    <string name="add_vocabulary_fragment_hint">Input new word or phrase here</string>
-    <string name="add_vocabulary_fragment_hint_extra_info">Info about the vocabulary</string>
+    <string name="hint_add_vocabulary">Input new word or phrase here</string>
+    <string name="hint_vocabulary_extra_info">Info about the vocabulary</string>
     <string name="button_add_vocabulary">加生词</string>
     <string name="button_add_word_or_phrase">Add Word or Phrase</string>
     <string name="show_vocabulary_is_empty">Vocabulary list is empty!</string>
