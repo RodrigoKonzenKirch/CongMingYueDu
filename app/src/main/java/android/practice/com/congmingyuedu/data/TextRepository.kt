@@ -20,21 +20,20 @@ import android.content.Context
 import android.practice.com.congmingyuedu.data.local.*
 import androidx.lifecycle.LiveData
 
-class TextRepository(private val chineseTextDao: ChineseTextDao, private val vocabularyDao: VocabularyDao,
-                     private val chineseDictionaryDao: ChineseDictionaryDao, context: Context) {
+class TextRepository(private val database: AppDatabase, context: Context) {
 
-    val allVocabulary: LiveData<List<Vocabulary>> = vocabularyDao.getAll()
-    val allTexts: LiveData<List<ChineseText>> = chineseTextDao.getAll()
+    val allVocabulary: LiveData<List<Vocabulary>> = database.vocabularyDao().getAll()
+    val allTexts: LiveData<List<ChineseText>> = database.textDao().getAll()
     private val sharedPref: SharedPreference =
         SharedPreference(context)
-    var currentText: LiveData<ChineseText> = chineseTextDao.getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
+    var currentText: LiveData<ChineseText> = database.textDao().getTextById(sharedPref.getValueInt(sharedPref.PREF_NAME))
 
     fun insertText(chineseText: ChineseText){
-        chineseTextDao.insert(chineseText)
+        database.textDao().insert(chineseText)
     }
 
     fun insertVocabulary(vocabulary: Vocabulary){
-            vocabularyDao.insert(vocabulary)
+            database.vocabularyDao().insert(vocabulary)
     }
 
     fun setCurrentTextId(id:Int){
@@ -42,28 +41,28 @@ class TextRepository(private val chineseTextDao: ChineseTextDao, private val voc
     }
 
     suspend fun getWordFromChineseDictionary(word: String): ChineseDictionary {
-        return chineseDictionaryDao.getWord(word)
+        return database.chineseDictionaryDao().getWord(word)
     }
 
     fun setVocabularyStarred(isStarred: Boolean, id: Long){
-        vocabularyDao.setVocabularyStarred(isStarred, id)
+        database.vocabularyDao().setVocabularyStarred(isStarred, id)
     }
 
     suspend fun getVocabularyById(id: Long): Vocabulary {
-        return vocabularyDao.getVocabularyById(id)
+        return database.vocabularyDao().getVocabularyById(id)
     }
 
     suspend fun deleteVocabularyById(id: Long){
-        vocabularyDao.deleteVocabularyById(id)
+        database.vocabularyDao().deleteVocabularyById(id)
     }
 
     suspend fun deleteTextById(id: Long){
-        chineseTextDao.deleteTextById(id)
+        database.textDao().deleteTextById(id)
 
     }
 
     fun getCurrentTextAsString(): LiveData<String>{
-        return chineseTextDao.getTextContentById(sharedPref.getValueInt(sharedPref.PREF_NAME).toLong())
+        return database.textDao().getTextContentById(sharedPref.getValueInt(sharedPref.PREF_NAME).toLong())
     }
 
 }

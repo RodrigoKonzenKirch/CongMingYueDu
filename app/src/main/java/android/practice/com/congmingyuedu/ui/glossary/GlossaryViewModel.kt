@@ -25,20 +25,14 @@ import androidx.lifecycle.LiveData
 
 class GlossaryViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: TextRepository
+    private val repository: TextRepository = TextRepository(
+        AppDatabase.getInstance(application)!!,
+        application
+    )
     val vocabularyList: LiveData<List<Vocabulary>>
     var mCurrentText : LiveData<String>
 
     init {
-        val textDao = AppDatabase.getInstance(application)!!.textDao()
-        val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
-        val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
-        repository = TextRepository(
-            textDao,
-            vocabularyDao,
-            dictionaryDao,
-            application
-        )
         vocabularyList = repository.allVocabulary
         mCurrentText = repository.getCurrentTextAsString()
     }

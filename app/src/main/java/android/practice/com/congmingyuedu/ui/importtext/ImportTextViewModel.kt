@@ -27,19 +27,10 @@ import kotlinx.coroutines.launch
 
 class ImportTextViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: TextRepository
-
-    init {
-        val textDao = AppDatabase.getInstance(application)!!.textDao()
-        val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
-        val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
-        repository = TextRepository(
-            textDao,
-            vocabularyDao,
-            dictionaryDao,
-            application
-        )
-    }
+    private val repository: TextRepository = TextRepository(
+        AppDatabase.getInstance(application)!!,
+        application
+    )
 
     fun insertText(chineseText: ChineseText) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertText(chineseText)

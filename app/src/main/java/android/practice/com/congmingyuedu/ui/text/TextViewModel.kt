@@ -29,21 +29,14 @@ import kotlinx.coroutines.launch
 
 class TextViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: TextRepository
-
+    private val repository: TextRepository = TextRepository(
+        AppDatabase.getInstance(application)!!,
+        application
+    )
     val currentText: LiveData<ChineseText>
     var vocabularyList: LiveData<List<Vocabulary>>
 
     init {
-        val textDao = AppDatabase.getInstance(application)!!.textDao()
-        val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
-        val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
-        repository = TextRepository(
-            textDao,
-            vocabularyDao,
-            dictionaryDao,
-            application
-        )
         currentText = repository.currentText
         vocabularyList = repository.allVocabulary
     }
