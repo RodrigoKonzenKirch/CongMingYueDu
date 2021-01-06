@@ -81,6 +81,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+                android:id="@+id/textViewPinyin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageViewStar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
                 android:id="@+id/textViewSimplified"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,32 +96,23 @@
                 android:textSize="50sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/textViewPinyin" />
 
         <TextView
                 android:id="@+id/textViewTraditional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginStart="@dimen/spacing_small"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textViewPinyin"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSimplified" />
-
-        <TextView
-                android:id="@+id/textViewPinyin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_small"
-                app:layout_constraintStart_toEndOf="@+id/textViewTraditional"
-                app:layout_constraintTop_toTopOf="@+id/textViewTraditional"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewSimplified" />
 
         <TextView
                 android:id="@+id/textViewTranslation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
+                android:layout_marginTop="50dp"
                 android:textSize="18sp"
                 android:padding="@dimen/spacing_normal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,26 +128,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTranslation" />
 
-
-        <TextView
-                android:id="@+id/textViewLabelExample"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_small"
-                android:text="@string/example"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewInfo" />
-
-        <TextView
-                android:id="@+id/textViewExample"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
-                android:scrollX="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabelExample" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
