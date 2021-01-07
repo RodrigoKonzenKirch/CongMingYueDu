@@ -24,7 +24,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_vocabulary_details.*
 
@@ -56,22 +55,5 @@ class VocabularyDetailsFragment : Fragment() {
             viewPagerVocabularyDetails.post { viewPagerVocabularyDetails.setCurrentItem(args.vocabularyIdArg,false) }
         })
     }
-
-
-    // TODO: Check this alert after implementing real data(consider not navigating away after deletion) correct deleteVocabularyById argument
-//    private fun showAlertDialog() {
-//        val builder = AlertDialog.Builder(context)
-//        builder.setMessage(getString(R.string.alert_dialog_delete_confirmation))
-//            .setCancelable(false)
-//            .setPositiveButton("Yes"){ _, _ ->
-//                vocabularyDetailsViewModel.deleteVocabularyById(args.vocabularyIdArg.toLong())
-//                //nav_host_fragment.findNavController().navigate(VocabularyDetailsFragmentDirections.actionVocabularyDetailsFragmentToShowVocabularyFragment())
-//            }
-//            .setNegativeButton("No"){ dialog, _ ->
-//                dialog.dismiss()
-//            }
-//        val alert = builder.create()
-//        alert.show()
-//    }
 
 }
