@@ -21,7 +21,6 @@ import android.practice.com.congmingyuedu.data.TextRepository
 import android.practice.com.congmingyuedu.data.local.AppDatabase
 import android.practice.com.congmingyuedu.data.local.ChineseDictionary
 import android.practice.com.congmingyuedu.data.local.Vocabulary
-import android.practice.com.congmingyuedu.data.local.VocabularyDetails
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,23 +31,9 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
         AppDatabase.getInstance(application)!!,
         application
     )
-    var vocabularyDetails : MutableLiveData<VocabularyDetails>
     var allVocab:LiveData<List<Vocabulary>>
 
     init {
-        vocabularyDetails = MutableLiveData(
-            VocabularyDetails(
-                false,
-                "simp",
-                "trad",
-                "pin",
-                "tran",
-                "info"
-            )
-        )
-//        var ccc = viewModelScope.launch { Transformations.switchMap(vocabularyDetails, (id -> ) id-> {
-//            repository.getVocabularyById(vocab)
-//        }) }
         allVocab = repository.allVocabulary
     }
 
@@ -63,38 +48,6 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
     // get current star status from DB and set the opposite
     fun invertStarStatusById(id: Long) = viewModelScope.launch(Dispatchers.IO) {
         repository.setVocabularyStarred(!repository.getVocabularyById(id).vocabularyStarred, id)
-    }
-
-    fun setUpVocabularyDetailsById(id: Long) {
-        var vocabularyContentFromDictionary: ChineseDictionary
-        var word: Vocabulary
-
-        viewModelScope.launch{
-            word = getVocabularyById(id)
-            vocabularyContentFromDictionary = getWordFromChineseDictionary(word.vocabularyContent)
-
-            if (vocabularyContentFromDictionary == null || vocabularyContentFromDictionary.wordSimplified.isNullOrEmpty()){
-
-                vocabularyDetails = MutableLiveData(
-                    VocabularyDetails(word.vocabularyStarred,
-                    word.vocabularyContent,
-                    "",
-                    "",
-                    "",
-                    word.vocabularyExtraInfo)
-                )
-            }else {
-                vocabularyDetails = MutableLiveData(VocabularyDetails(
-                    word.vocabularyStarred,
-                    vocabularyContentFromDictionary.wordSimplified,
-                    vocabularyContentFromDictionary.wordSimplified,
-                    vocabularyContentFromDictionary.wordPinyin,
-                    vocabularyContentFromDictionary.wordTranslation,
-                    word.vocabularyExtraInfo))
-
-            }
-            //TODO populate vocabularyExamples
-        }
     }
 
     fun deleteVocabularyById(id: Long){

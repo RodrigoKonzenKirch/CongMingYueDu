@@ -45,10 +45,10 @@ class GlossaryListAdapter: RecyclerView.Adapter<GlossaryListAdapter.ShowGlossary
             holder.textViewItem.setTypeface(null, Typeface.BOLD)
         }
         holder.textViewItem.text = vocabularyList[position].second.vocabularyContent
-        holder.textViewItem.setOnClickListener {
-            val action = GlossaryFragmentDirections.actionGlossaryFragmentToVocabularyDetailsFragment(position)
-            Navigation.findNavController(holder.textViewItem).navigate(action)
-        }
+//        holder.textViewItem.setOnClickListener {
+//            val action = GlossaryFragmentDirections.actionGlossaryFragmentToVocabularyDetailsFragment(position)
+//            Navigation.findNavController(holder.textViewItem).navigate(action)
+//        }
     }
 
     internal fun setVocabularyList(vocabularyList: List<Vocabulary>, currentText: String){

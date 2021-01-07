@@ -2,9 +2,6 @@ package android.practice.com.congmingyuedu.ui.vocabularydetails
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.data.local.Vocabulary
-import android.practice.com.congmingyuedu.data.local.VocabularyDetails
-import android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsItemFragment
-import android.practice.com.congmingyuedu.ui.vocabularydetails.VocabularyDetailsViewModel
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 

@@ -2,15 +2,11 @@ package android.practice.com.congmingyuedu.ui.vocabularydetails
 
 import android.os.Bundle
 import android.practice.com.congmingyuedu.R
-import android.practice.com.congmingyuedu.ui.vocabularydetails.ARG_POS
-import android.practice.com.congmingyuedu.ui.vocabularydetails.ARG_SIMP
-import android.practice.com.congmingyuedu.ui.vocabularydetails.ARG_SIZE
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_vocabulary_details_item.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,11 +30,6 @@ class VocabularyDetailsItemFragment: Fragment() {
 
         arguments?.takeIf { it.containsKey(ARG_SIMP) }?.apply {
 
-//            textViewSimplified.text = getString(ARG_SIMP)
-//            textViewPinyin.text = "PinNoArgYet"
-//            textViewTranslation.text = "TranslationNoArgYet"
-//            textViewInfo.text = " InfoNoArgYet"
-//            textViewExample.text = "ExampleNoArgYet"
             textViewPageCounter.text = getString(R.string.vocabulary_details_page_counter,
                 getInt(ARG_POS)+1, getInt(ARG_SIZE))
             position = getInt(ARG_POS)
