@@ -36,9 +36,6 @@ class DeleteTextViewModel(application: Application) : AndroidViewModel(applicati
     val allTexts: LiveData<List<ChineseText>>
 
     init {
-//        val textDao = AppDatabase.getInstance(application)!!.textDao()
-//        val vocabularyDao = AppDatabase.getInstance(application)!!.vocabularyDao()
-//        val dictionaryDao = AppDatabase.getInstance(application)!!.chineseDictionaryDao()
         allTexts = repository.allTexts
     }
 

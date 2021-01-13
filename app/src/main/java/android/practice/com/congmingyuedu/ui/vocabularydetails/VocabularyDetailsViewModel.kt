@@ -41,10 +41,6 @@ class VocabularyDetailsViewModel(application: Application) : AndroidViewModel(ap
         return repository.getWordFromChineseDictionary(word)
     }
 
-    private suspend fun getVocabularyById(id: Long): Vocabulary {
-        return repository.getVocabularyById(id)
-    }
-
     // get current star status from DB and set the opposite
     fun invertStarStatusById(id: Long) = viewModelScope.launch(Dispatchers.IO) {
         repository.setVocabularyStarred(!repository.getVocabularyById(id).vocabularyStarred, id)
