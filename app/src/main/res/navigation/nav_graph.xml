@@ -103,9 +103,9 @@
     <fragment
             android:id="@+id/settingsFragment"
             android:name="android.practice.com.congmingyuedu.ui.settings.SettingsFragment"
-            android:label="SettingsFragment" />
+            android:label="@string/settings" />
     <fragment
             android:id="@+id/showVocabularySimpleList"
             android:name="android.practice.com.congmingyuedu.ui.showvocabularysimplelist.ShowVocabularySimpleList"
-            android:label="showVocabularySimpleList" />
+            android:label="@string/menu_simple_list" />
 </navigation>
