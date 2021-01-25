@@ -35,7 +35,7 @@
                     android:key="COLOR_OF_HIGHLIGHTING"
                     android:title="Highlight color"
                     android:defaultValue="Yellow"
-                    android:summary="@string/highlight_settings_summary"
+                    app:useSimpleSummaryProvider="true"
                     android:entries="@array/highlight_colors_array"
                     android:entryValues="@array/highlight_colors_array"
                     />
